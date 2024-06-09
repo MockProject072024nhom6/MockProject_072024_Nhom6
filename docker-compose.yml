@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    image: postgres-container
+    environment:
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - spring-network
+    ports:
+      - "5432:5432"
+
+  your-app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-network
+    depends_on:
+      - postgres-container
+
+networks:
+  your-network-name:
+    driver: bridge

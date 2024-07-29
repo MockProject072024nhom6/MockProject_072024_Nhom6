@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="flex flex-col items-center justify-center min-h-screen bg-background"
+    >
+      <div class="bg-card p-8 rounded-lg shadow-md w-full max-w-sm">
+        <img
+          aria-hidden="true"
+          alt="Bodyguards Logo"
+          src="https://openui.fly.dev/openui/24x24.svg?text=🛡️"
+          class="mb-4"
+        />
+        <h1 class="text-2xl font-bold text-foreground mb-2">BodyGuards.com</h1>
+        <h2 class="text-lg text-muted-foreground mb-6">Company Sign in</h2>
+
+        <form id="loginForm">
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+            class="border border-border rounded-lg p-2 mb-4 w-full"
+            required
+          />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            class="border border-border rounded-lg p-2 mb-4 w-full"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-primary text-primary-foreground hover:bg-primary/80 rounded-lg p-2 w-full"
+          >
+            Login
+          </button>
+        </form>
+
+        <div class="mt-4 text-center">
+          <a href="#" class="text-muted-foreground">Not a member?</a>
+          <br />
+          <a href="#" class="text-muted-foreground"
+            >Having trouble logging in?</a
+          >
+        </div>
+      </div>
+
+      <footer class="mt-8 text-center text-muted-foreground">
+        <p>
+          Bodyguards.com is a free searchable directory to help you find what
+          you need for safety and security. Search under a variety of services
+          for the type you need.
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="./scripts.js"></script>
+  </body>
+</html>

@@ -10,7 +10,8 @@
     "lint:fix": "eslint --fix src --ext ts,tsx",
     "prettier": "prettier --check \"src/**/(*.tsx|*.ts)\"",
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts)\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
@@ -45,6 +46,7 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "lint-staged": "^15.2.8",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
@@ -52,5 +54,17 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.0",
     "vite": "^5.4.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint",
+      "yarn prettier",
+      "git add ."
+    ],
+    "*.tsx": [
+      "yarn lint",
+      "yarn prettier",
+      "git add ."
+    ]
   }
 }

@@ -19,7 +19,7 @@ export default tseslint.config({
     "next/core-web-vitals"
   ],
   files: ["**/*.{ts,tsx}"],
-  ignores: ["dist"],
+  ignores: ["dist", "node_modules", "vite.config.ts"],
   languageOptions: {
     parser: typescriptParser,
     ecmaVersion: 2020,

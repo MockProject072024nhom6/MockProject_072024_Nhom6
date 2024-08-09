@@ -6,13 +6,17 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint src --ext ts,tsx",
+    "lint:fix": "eslint --fix src --ext ts,tsx",
+    "prettier": "prettier --check \"src/**/(*.tsx|*.ts)\"",
+    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts)\"",
     "preview": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "antd": "^5.20.0",
     "axios": "^1.7.3",
+    "eslint": "^9.8.0",
     "lucide-react": "^0.426.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -25,13 +29,13 @@
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@next/eslint-plugin-next": "^14.2.5",
+    "@types/node": "^22.1.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.0.1",
     "@typescript-eslint/parser": "^8.0.1",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.8.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.9.0",

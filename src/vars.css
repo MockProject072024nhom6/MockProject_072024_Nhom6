@@ -1,0 +1,8 @@
+:root {
+  /* Color */
+  --color-text: #787486; /*If background is white*/
+  --color-primary: #0022ff;
+  --color-secondary: #0d062d;
+  --color-heading: #335eff;
+  --color-bg: #04152d;
+}

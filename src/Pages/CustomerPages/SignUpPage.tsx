@@ -12,10 +12,10 @@ import { Link, useNavigate } from "react-router-dom"
 const SignUpPage = () => {
   const navigate = useNavigate()
   return (
-    <div className='w-screen flex flex-col justify-center items-center font-montserrat'>
+    <div className='w-screen flex flex-col justify-center items-center font-montserrat mb-10'>
       <Logo />
 
-      <div className='w-[26%] flex flex-col justify-center items-center pt-4 pb-10 mt-10 shadow-blueShadow rounded-xl'>
+      <div className='w-[75%] sm:w-[60%] md:w-[40%] lg:w-[30%] flex flex-col justify-center items-center pt-4 pb-10 mt-10 shadow-blueShadow rounded-xl'>
         <BackButton />
         <p className='text-[32px] mb-6 text-center'>SIGN UP</p>
         <Formik

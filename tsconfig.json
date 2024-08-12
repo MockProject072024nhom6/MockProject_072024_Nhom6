@@ -18,10 +18,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": "./src", // Đặt baseUrl trỏ tới thư mục src (hoặc root project)
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["*"] // Thiết lập alias @ trỏ tới src
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs", "src"], // Bao gồm thư mục src trong việc compile
   "exclude": ["node_modules"]
 }

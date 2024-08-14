@@ -2,9 +2,11 @@ import { useState } from "react";
 import { 
   container, loginBox, logoContainer, inputGroup, labelStyle, inputStyle, 
   passwordContainer, passwordInput, togglePassword, checkboxContainer, 
-  buttonStyle, registerText, registerLink, titleStyle ,allLink
+  buttonStyle, registerText, registerLink, titleStyle, allLink 
 } from "../Style/tailwindStyles";
 import { Eye, EyeOff } from 'lucide-react';
+import logo from "../assets/logo1.png"
+
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -21,7 +23,7 @@ function Login() {
   return (
     <div className={container}>
       <div className={logoContainer}>
-        <img src="/vite.svg" alt="Logo" className="h-16 mx-auto" />
+        <img src={logo} alt="Logo" className="h-16 mx-auto" />
       </div>
       <div className={loginBox}>
         <h2 className={titleStyle}>Login</h2>
@@ -76,11 +78,7 @@ function Login() {
           </button>
         </form>
         <div className={allLink}>
-        <a href="#" className={registerLink}> Forgot password?</a>
-        <p className={registerText}>
-          You don't have an account yet? 
-          <a href="#" className={registerLink}> Register now!</a>
-        </p>
+          <a href="#" className={registerLink}> Forgot password?</a>
         </div>
       </div>
     </div>

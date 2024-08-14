@@ -4,7 +4,7 @@ import React from "react"
 export default function Forms({ label, name, value, onChange }: I_Props_Forms) {
   return (
     <div>
-      <label>{label}</label>
+      <label className='font-headings'>{label}</label>
       <Field name={name} />
     </div>
   )

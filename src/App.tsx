@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import GuardLayout from "./Layouts/GuardLayout/GuardLayout"
-import GuardRoute from "./Routes/GuardRoute"
+import GuardRoute from "./Routes/DashboardRoute"
 
 function App() {
   return (

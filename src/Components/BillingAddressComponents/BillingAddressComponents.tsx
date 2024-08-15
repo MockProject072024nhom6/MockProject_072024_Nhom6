@@ -1,8 +1,7 @@
 import { Form, Formik } from "formik"
 import React from "react"
-import Select from "../SharedComponents/Select"
 import Location from "./Location"
-import { billingAddressObjects } from "../../Objects/objects"
+import { billingAddressObjects } from "../../Objects/Objects"
 import { addressLine1List, countryList } from "../../Arrays/Arrays"
 import AddressLine1Components from "./AddressLine1Components"
 

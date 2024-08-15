@@ -4,7 +4,7 @@ import { Form, Formik } from "formik"
 import AvatarForm from "../SharedComponents/AvatarForm"
 import Phone from "./Phone"
 import userImage from "../../Assets/user-image.png"
-import { profileObject } from "../../Objects/objects"
+import { profileObject } from "../../Objects/Objects"
 
 export default function ProfileComponents(): JSX.Element {
   return (

@@ -56,6 +56,12 @@ interface I_Props_AvatarForm {
   userImage?: string
 }
 
+interface I_Props_AddressLine1 {
+  list?: string[]
+  value?: string
+  handleChange?: (event: React.ChangeEvent<any>) => void
+}
+
 // I_props: Kiểu dữ liệu dùng cho style.
 interface I_Style_GuardStyle {
   container: string

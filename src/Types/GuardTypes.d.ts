@@ -26,6 +26,14 @@ interface I_Props_Profile {
   userImage?: string
 }
 
+interface I_Props_Location {
+  list: string[]
+  locationValue?: string
+  cityValue?: string
+  stateValue?: string
+  handleChange?: (event: React.ChangeEvent<any>) => void
+}
+
 interface I_Props_Forms {
   label?: string
   name?: string
@@ -37,9 +45,10 @@ interface I_Props_Forms {
 interface I_Props_Select {
   name?: string
   value?: string
-  option1?: string
-  option2?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
+  list?: string[]
+  width?: string
+  border?: string
 }
 
 interface I_Props_AvatarForm {

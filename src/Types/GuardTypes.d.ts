@@ -18,16 +18,33 @@ interface I_Props_Profile {
   fullName?: string
   email?: string
   phone?: string
+  device?: string
   organization?: string
   department?: string
   accountType?: string
+  profileObject?: I_Props_Profile
+  userImage?: string
 }
 
 interface I_Props_Forms {
   label?: string
   name?: string
   value?: string
-  onChange?: (event: React.ChangeEvent<any>) => void
+  device?: string
+  handleChange?: (event: React.ChangeEvent<any>) => void
+}
+
+interface I_Props_Select {
+  name?: string
+  value?: string
+  option1?: string
+  option2?: string
+  handleChange?: (event: React.ChangeEvent<any>) => void
+}
+
+interface I_Props_AvatarForm {
+  avatar?: string
+  userImage?: string
 }
 
 // I_props: Kiểu dữ liệu dùng cho style.

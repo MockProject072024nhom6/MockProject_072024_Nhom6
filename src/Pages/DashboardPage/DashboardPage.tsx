@@ -1,7 +1,6 @@
 import React from "react"
 import Tab from "../../Components/SharedComponents/Tabs"
 import { guardStyle } from "../../Styles/GuardStyle"
-import { useFormik } from "formik"
 
 export default function DashboardPage() {
   return (

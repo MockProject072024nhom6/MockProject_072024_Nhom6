@@ -52,3 +52,16 @@ export default tseslint.config({
 Using font with Tailwind CSS:
 Step 1: Open my tailwind.config.js file and configure the font.
 Step 2: Using fonts in component by tailwind CSS.
+Step 3:
+
+Using yup:
+
+Using redux Toolkit:
+Step 1: Create ReduxToolkit folder, create file Store.ts.
+Step 2: View file Store.ts.
+Step 3: Create Features folder, create a {name}Slice ({name} is the page name).
+Step 4: In Slice.ts, create state in initialState, name value must be same variable name.
+Step 5: Create state and write logic in reducers.
+Step 6: Exporting and using variable.
+Step 7: Get state about components using useAppSelector.
+Step 8: Checking by Console.log.

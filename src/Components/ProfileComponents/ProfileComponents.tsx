@@ -5,8 +5,11 @@ import AvatarForm from "../SharedComponents/AvatarForm"
 import userImage from "../../Assets/user-image.png"
 import { profileObject } from "../../Objects/Objects"
 import PhoneComponents from "./PhoneComponents"
+import { useAppSelector } from "../../ReduxToolkit/Store"
 
 export default function ProfileComponents(): JSX.Element {
+  const { avatarImage } = useAppSelector(state => state.DashboardSlice)
+  // console.log("🚀 ~ ProfileComponents ~ avatarImage:", avatarImage)
   return (
     <Formik
       initialValues={profileObject}

@@ -1,5 +1,5 @@
 import React from 'react';
-import background_carousel from '../assets/images/background_carousel.png';
+import background_carousel from '../../assets/images/background_carousel.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -9,7 +9,7 @@ import 'swiper/css/effect-fade';
 
 const images = [background_carousel, background_carousel, background_carousel];
 
-const ImageCarousel = () => {
+const Carousel = () => {
   return (
     <div className="w-full max-w-5xl mx-auto overflow-hidden rounded-lg ">
       <Swiper
@@ -37,4 +37,4 @@ const ImageCarousel = () => {
   );
 };
 
-export default ImageCarousel;
+export default Carousel;

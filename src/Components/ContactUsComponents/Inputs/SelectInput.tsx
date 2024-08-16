@@ -1,12 +1,7 @@
 import React from 'react';
+import { I_props_SelectInput } from '../../../Types/GuardTypes';
 
-type SelectInputProps = {
-  options: string[];
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-};
-
-const SelectInput: React.FC<SelectInputProps> = ({
+const SelectInput: React.FC<I_props_SelectInput> = ({
   options,
   value,
   onChange,

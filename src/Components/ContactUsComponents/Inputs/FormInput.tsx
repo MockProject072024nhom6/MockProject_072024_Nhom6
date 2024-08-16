@@ -1,13 +1,7 @@
 import React from 'react';
+import { I_props_FormInput } from '../../../Types/GuardTypes';
 
-type FormInputProps = {
-  type?: string;
-  placeholder: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-const FormInput: React.FC<FormInputProps> = ({
+const FormInput: React.FC<I_props_FormInput> = ({
   type = 'text',
   placeholder,
   value,

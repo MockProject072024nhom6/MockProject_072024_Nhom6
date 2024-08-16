@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import GuardLayout from "./Layouts/GuardLayout/GuardLayout"
 import LoginPage from "./Pages/CustomerPages/LoginPage"
 import SignUpPage from "./Pages/CustomerPages/SignUpPage"
-import GuardRoute from "./Routes/GuardRoute"
+import GuardRoute from "./Routes/DashboardRoute"
 
 function App() {
   return (

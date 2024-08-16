@@ -2,14 +2,25 @@ import { PencilIcon } from "lucide-react"
 import React, { useRef } from "react"
 import { guardStyle } from "../../Styles/GuardStyle"
 import { handleFileChange, handleUploadImage } from "../../Utils/HandleFunctions"
+import userImage from "../../Assets/user-image.png"
+import Image from "./Image"
 
-export default function AvatarForm({ avatar, userImage }: I_Props_AvatarForm) {
+export default function AvatarForm({ avatar, justify, gap }: I_Props_AvatarForm) {
   const fileInputRef = useRef<HTMLInputElement>(null)
   return (
-    <div className='flex gap-20 items-center relative'>
+    <div className={`flex items-center ${justify} ${gap}`}>
       <label>{avatar}</label>
       <div className='relative'>
-        <img src={userImage} alt='user image' width={100} height={100} className='border-2 rounded-full p-2 ms-14' />
+        <Image
+          src={userImage}
+          alt='user image'
+          width='100'
+          height='100'
+          border='border-2'
+          rounded=' rounded-full'
+          padding=' p-2'
+          marginL='ms-14'
+        />
         <PencilIcon
           className={guardStyle.pencilIcon}
           onClick={() => {

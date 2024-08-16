@@ -199,3 +199,5 @@ export const countryList = [
 ]
 
 export const addressLine1List = ["individual", "enterprise"]
+
+export const guardMenu = ["Dashboard", "Day-off", "Working Schedule", "Training course"]

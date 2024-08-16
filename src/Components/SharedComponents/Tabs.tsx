@@ -3,6 +3,7 @@ import { Tabs as Tab } from "antd"
 import TabPane from "antd/es/tabs/TabPane"
 import ProfileComponents from "../ProfileComponents/ProfileComponents"
 import BillingAddressComponents from "../BillingAddressComponents/BillingAddressComponents"
+import ConfirmationComponents from "../ConfirmationComponents/ConfirmationComponents"
 
 export default function Tabs({ profile, billingAddress, confirmation }: I_Props_Tabs): JSX.Element {
   return (
@@ -14,7 +15,7 @@ export default function Tabs({ profile, billingAddress, confirmation }: I_Props_
         <BillingAddressComponents />
       </TabPane>
       <TabPane tab={<>{confirmation}</>} key='3'>
-        56
+        <ConfirmationComponents />
       </TabPane>
     </Tab>
   )

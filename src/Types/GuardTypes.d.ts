@@ -40,6 +40,8 @@ interface I_Props_Forms {
   value?: string
   device?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
+  type?: string
+  // setFieldValue?: (field: string, value: any, shouldValidate?: boolean) => void
 }
 
 interface I_Props_Select {

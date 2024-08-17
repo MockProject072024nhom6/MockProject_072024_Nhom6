@@ -9,7 +9,11 @@ const store = configureStore({
 })
 
 export type RootState = ReturnType<typeof store.getState>
+
+// Hook useDispatch
 export const useAppDispatch: () => typeof store.dispatch = useDispatch
+
+// Hook useSelector
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export default store

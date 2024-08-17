@@ -52,15 +52,23 @@ export default tseslint.config({
 Using font with Tailwind CSS:
 Step 1: Open my tailwind.config.js file and configure the font.
 Step 2: Using fonts in component by tailwind CSS.
-Step 3:
+Step 3: import google font in index.css.
+Step 4: Using in className.
 
 Using yup:
+Step 1: Create folder validation.
+Step 2: Create a file NameValidation.
+Step 3: If the field has string datatype, Yup.string().
+Step 4: .min(3, 'Error notification'), 3 is minimum character, similar to max.
+Step 5: .required(), Required fields.
+Step 6: .matches(A1, A2), using with select tag, required A1 or A2.
+Step 7: .email(), email must be correct.
 
 Using redux Toolkit:
 Step 1: Create ReduxToolkit folder, create file Store.ts.
 Step 2: View file Store.ts.
 Step 3: Create Features folder, create a {name}Slice ({name} is the page name).
-Step 4: In Slice.ts, create state in initialState, name value must be same variable name.
+Step 4: In nameSlice.ts, create state in initialState, name value must be same variable name.
 Step 5: Create state and write logic in reducers.
 Step 6: Exporting and using variable.
 Step 7: Get state about components using useAppSelector.

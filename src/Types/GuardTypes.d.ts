@@ -39,6 +39,7 @@ interface I_Props_AvatarForm {
   userImage?: string
   justify?: string
   gap?: string
+  setFieldValue?: (field: string, value: any, shouldValidate?: boolean) => void
 }
 
 interface I_Props_Image {
@@ -66,14 +67,14 @@ interface I_Props_InfoConfirm {
 
 // Components
 interface I_Props_Profile {
-  avatar?: string
-  fullName?: string
-  email?: string
-  phone?: string
-  device?: string
-  organization?: string
-  department?: string
-  accountType?: string
+  avatar: string
+  fullName: string
+  email: string
+  phone: string
+  device: string
+  organization: string
+  department: string
+  accountType: string
   profileObject?: I_Props_Profile
   userImage?: string
 }
@@ -91,6 +92,9 @@ interface I_Props_AddressLine1 {
   value?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
 }
+
+// Formik
+type setFieldValue = (field: string, value: any, shouldValidate?: boolean) => void
 
 // I_props: data type using for style.
 interface I_Style_GuardStyle {

@@ -4,20 +4,22 @@ import { Form, Formik } from "formik"
 import AvatarForm from "../SharedComponents/AvatarForm"
 import { profileObject } from "../../Objects/Objects"
 import PhoneComponents from "./PhoneComponents"
-import { useAppSelector } from "../../ReduxToolkit/Store"
+import { handleFormData } from "../../Utils/HandleFunctions"
+import { useAppDispatch } from "../../ReduxToolkit/Store"
 
 export default function ProfileComponents(): JSX.Element {
-  const { avatarImage } = useAppSelector(state => state.DashboardSlice)
+  const dispatch = useAppDispatch()
   return (
     <Formik
       initialValues={profileObject}
       onSubmit={values => {
         console.log("🚀 ~ values:", values)
+        handleFormData(values.avatar, dispatch)
       }}
     >
-      {({ handleChange, values }) => (
+      {({ handleChange, values, setFieldValue }) => (
         <Form className={guardStyle.form}>
-          <AvatarForm avatar='avatar' gap='gap-20' />
+          <AvatarForm avatar='avatar' gap='gap-20' setFieldValue={setFieldValue} />
           <Forms label='full name' name='fullName' value={values.fullName} handleChange={handleChange} />
           <Forms label='email' name='email' value={values.email} handleChange={handleChange} />
           <PhoneComponents

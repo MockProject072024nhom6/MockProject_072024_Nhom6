@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import GuardLayout from "./Layouts/GuardLayout/GuardLayout"
-import GuardRoute from "./Routes/DashboardRoute"
-import { guardMenu } from "./Arrays/Arrays"
+import { guardMenu, paths } from "./Arrays/Arrays"
 import { Bookmark, LayoutDashboard, MessageSquareText, SquareChevronDown } from "lucide-react"
+import WorkingScheduleRoute from "./Routes/WorkingScheduleRoute"
+import DashboardRoute from "./Routes/DashboardRoute"
 
 function App() {
   return (
@@ -15,10 +16,14 @@ function App() {
               <GuardLayout
                 menu={guardMenu}
                 itemList={[Bookmark, LayoutDashboard, MessageSquareText, SquareChevronDown]}
+                paths={paths}
               />
             }
           >
-            {GuardRoute.map((route, index) => (
+            {DashboardRoute.map((route, index) => (
+              <Route key={index} path={route.path} element={<route.element />} />
+            ))}
+            {WorkingScheduleRoute.map((route, index) => (
               <Route key={index} path={route.path} element={<route.element />} />
             ))}
           </Route>

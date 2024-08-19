@@ -6,6 +6,7 @@ type LucideIcon = React.FC<LucideProps>
 interface I_Props_GuardLayout {
   menu: string[]
   itemList?: LucideIcon[]
+  paths?: string[]
 }
 
 interface I_Props_GuardLayoutContent {
@@ -51,6 +52,15 @@ interface I_Props_Image {
   rounded?: string
   padding?: string
   marginL?: string
+  flex?: string
+  justify?: string
+}
+
+interface I_Props_Button {
+  name?: string
+  position?: string
+  type?: "link" | "default" | "primary" | "dashed" | "text" | undefined
+  onClick?: () => void
 }
 
 interface I_Props_Tabs {
@@ -77,6 +87,19 @@ interface I_Props_Profile {
   accountType: string
   profileObject?: I_Props_Profile
   userImage?: string
+}
+
+interface I_Props_ProfileComponents {
+  onNext: () => void
+}
+
+interface I_Props_BillingAddressComponents {
+  onPrevious: () => void
+  onNext: () => void
+}
+
+interface I_Props_ConfirmationComponents {
+  onEdit: () => void
 }
 
 interface I_Props_Location {

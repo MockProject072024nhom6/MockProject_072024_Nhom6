@@ -1,4 +1,3 @@
-import { I_props_Button } from './GuardTypes.d';
 export interface I_props_HeaderInPageHome {
   title: string;
   subtitle: string;
@@ -32,3 +31,42 @@ export type I_props_Button = {
   label: string;
   onClick: () => void;
 };
+export interface I_props_ServiceCard {
+  image: string;
+  title: string;
+  description: string;
+  note: string;
+  priceRange: string;
+  groupSize: string;
+  vipBadge?: boolean;
+}
+export interface I_props_Avatar {
+  size?: number;
+  border?: string;
+}
+export interface I_props_EditableButton {
+  initialText: string;
+  label: string;
+  type: string;
+}
+export interface I_props_SelectInputName {
+  initialText: string;
+  label: string;
+  options: string[];
+}
+export interface I_props_Contract {
+  no: number;
+  contractCode: string;
+  typeOfService: string;
+  specialRequirements: string;
+  price: string;
+  startDate: string;
+  endDate: string;
+  status: string;
+  view: string;
+  feedback: string;
+}
+
+export interface I_props_ContractTable {
+  contracts: I_props_Contract[];
+}

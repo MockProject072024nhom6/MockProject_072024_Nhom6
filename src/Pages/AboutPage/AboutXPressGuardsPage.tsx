@@ -1,9 +1,9 @@
 import React from 'react';
-import HeaderInPageHome from '../Components/ShareComponents/HeaderInPageHome';
-import MissionStatementAndServices from '../Components/AboutXPressGuardsComponents/MissionStatementAndServices';
-import ServiceDetails from '../Components/AboutXPressGuardsComponents/ServiceDetails';
-import Achievements from '../Components/AboutXPressGuardsComponents/Achievements';
-import TestimonialsCarousel from '../Components/ShareComponents/TestimonialsCarousel';
+import HeaderInPageHome from '../../Components/ShareComponents/HeaderInPageHome';
+import MissionStatementAndServices from '../../Components/AboutXPressGuardsComponents/MissionStatementAndServices';
+import ServiceDetails from '../../Components/AboutXPressGuardsComponents/ServiceDetails';
+import Achievements from '../../Components/AboutXPressGuardsComponents/Achievements';
+import TestimonialsCarousel from '../../Components/ShareComponents/TestimonialsCarousel';
 
 const AboutXPressGuardsPage: React.FC = () => {
   return (

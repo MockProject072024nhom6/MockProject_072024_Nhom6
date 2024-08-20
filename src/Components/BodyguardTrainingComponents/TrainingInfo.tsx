@@ -3,7 +3,7 @@ import guard from '../../assets/images/guard.png';
 
 const TrainingInfo: React.FC = () => {
   return (
-    <div className="grid grid-flow-row-dense grid-cols-3 mx-32">
+    <div className="grid grid-flow-row-dense grid-cols-1 mx-32 md:grid-cols-3">
       <div className="col-span-2 text-black">
         <p className="py-5 font-extrabold text-blue-800">Classes</p>
         <p className="font-extrabold text-2xl pb-5">

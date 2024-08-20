@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServiceDetails: React.FC = () => {
   return (
-    <div className="grid grid-cols-3 text-black pt-10 mx-32 text-center">
+    <div className="grid grid-cols-1 text-black pt-10 mx-32 text-center md:grid-cols-3">
       <div>
         <div className="p-5">
           <p className="font-bold text-blue-800 pb-5">Licensed & Insured</p>

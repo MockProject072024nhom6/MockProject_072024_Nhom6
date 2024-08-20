@@ -1,8 +1,8 @@
 import React from 'react';
-import HeaderInPageHome from '../Components/ShareComponents/HeaderInPageHome';
-import ContactForm from '../Components/ContactUsComponents/ContactForm';
-import ContactLocations from '../Components/ContactUsComponents/ContactLocations';
-import BusinessInfo from '../Components/ContactUsComponents/BusinessInfo';
+import HeaderInPageHome from '../../Components/ShareComponents/HeaderInPageHome';
+import ContactForm from '../../Components/ContactUsComponents/ContactForm';
+import ContactLocations from '../../Components/ContactUsComponents/ContactLocations';
+import BusinessInfo from '../../Components/ContactUsComponents/BusinessInfo';
 
 const ContactUsPage: React.FC = () => {
   return (

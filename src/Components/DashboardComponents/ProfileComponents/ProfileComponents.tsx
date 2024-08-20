@@ -32,7 +32,7 @@ export default function ProfileComponents({ onNext }: I_Props_ProfileComponents)
           <Forms label='organization' name='organization' value={values.organization} handleChange={handleChange} />
           <Forms label='department' name='department' value={values.department} handleChange={handleChange} />
           <Forms label='account type' name='accountType' value={values.accountType} handleChange={handleChange} />
-          <Button name='Next' type='primary' position='absolute right-0 -bottom-10' onClick={onNext} />
+          <Button name='Next' type='primary' className='absolute right-0 -bottom-10' onClick={onNext} />
         </Form>
       )}
     </Formik>

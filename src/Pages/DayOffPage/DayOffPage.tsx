@@ -1,15 +1,18 @@
 import React from "react"
 import { guardStyle } from "../../Styles/GuardStyle"
-import Tables from "../../Components/SharedComponents/Table"
 import ColumnDayOffComponents from "../../Components/DayOffComponents/ColumnDayOffComponents/ColumnDayOffComponents"
 import { dayOffData } from "../../Arrays/Arrays"
 import TableDayOffComponents from "../../Components/DayOffComponents/TableDayOffComponents/TableDayOffComponents"
+import FormDayOffComponents from "../../Components/DayOffComponents/TableDayOffComponents/FormDayOffComponents"
 
 export default function DayOffPage() {
   return (
     <section>
       <div className={guardStyle.container}>
-        <TableDayOffComponents columnDayOffComponents={ColumnDayOffComponents} dayOffData={dayOffData} />
+        <div className='flex gap-10'>
+          <TableDayOffComponents columnDayOffComponents={ColumnDayOffComponents} dayOffData={dayOffData} />
+          <FormDayOffComponents />
+        </div>
       </div>
     </section>
   )

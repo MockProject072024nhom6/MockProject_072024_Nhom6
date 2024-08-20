@@ -35,6 +35,18 @@ interface I_Props_Select {
   border?: string
 }
 
+interface I_Props_Date {
+  label?: string
+  placeholder?: string
+  className?: string
+}
+
+interface I_Props_TextArea {
+  label?: string
+  placeholder?: string
+  minRows?: number
+}
+
 interface I_Props_AvatarForm {
   avatar?: string
   userImage?: string

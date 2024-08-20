@@ -32,8 +32,8 @@ export default function ConfirmationComponents({ onEdit }: I_Props_ConfirmationC
         <InfoConfirm label='experience' />
         <InfoConfirm label='zip code' />
       </div>
-      <Button name='Save in draff' position='absolute right-16 -bottom-14' />
-      <Button name='Edit' position='absolute right-0 -bottom-14' type='primary' onClick={onEdit} />
+      <Button name='Save in draff' className='absolute right-16 -bottom-14' />
+      <Button name='Edit' className='absolute right-0 -bottom-14' type='primary' onClick={onEdit} />
     </section>
   )
 }

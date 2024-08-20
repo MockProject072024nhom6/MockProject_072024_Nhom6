@@ -32,8 +32,8 @@ export default function BillingAddressComponents({
           />
           <Forms label='Zip code' name='zipCode' value={values.zipCode} handleChange={handleChange} />
           <Forms label='Experience' name='experience' value={values.experience} handleChange={handleChange} />
-          <Button name='Previous step' position='absolute left-0 -bottom-10' onClick={onPrevious} />
-          <Button name='Next' type='primary' position='absolute right-0 -bottom-10' onClick={onNext} />
+          <Button name='Previous step' className='absolute left-0 -bottom-10' onClick={onPrevious} />
+          <Button name='Next' type='primary' className='absolute right-0 -bottom-10' onClick={onNext} />
         </Form>
       )}
     </Formik>

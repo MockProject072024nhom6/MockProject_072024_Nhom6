@@ -16,7 +16,7 @@ function Login() {
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const validateEmailOrPhone = (value) => {
+  const validateEmailOrPhone = (value:string) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phonePattern = /^\d{10,11}$/;
     return emailPattern.test(value) || phonePattern.test(value);

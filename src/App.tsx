@@ -12,15 +12,28 @@ import PriceStaff from "./Pages/PriceStaff.tsx"
 import AddPrice from "./Pages/AddPrice.tsx"
 import ChangePrice from "./Pages/ChangePrice.tsx"
 import DeletePrice from "./Pages/DeletePrice.tsx"
+import ContractStaff from "./Pages/ContractStaff.tsx"
 
 function App() {
   const [count, setCount] = useState(0)
+  const data = [
+    {
+      id: "001",
+      customerName: "John Doe",
+      startDate: "2024-08-01",
+      endDate: "2024-08-15",
+      requestDate: "2024-07-20",
+      status: "approved", // "pending", "notApproved", "rejected"
+      serviceDetails: "Security service for a 2-week event"
+    }
+  ];
   
   const user = {
-        name: "John Doe",
-        location: "India",
-        imageSrc: "https://via.placeholder.com/40"
-      };
+    name: "Jane Smith",
+    location: "Vietnam",
+    imageSrc: "https://via.placeholder.com/40"
+  };
+  
 
   return (
     <div className="flex flex-col h-screen">
@@ -41,7 +54,7 @@ function App() {
 
         {/* Main Content */}
         <div className="flex-1 p-4">
-        <AddPrice/>
+        <ContractStaff  data={data}/>
         </div>
       </div>
     </div>

@@ -22,8 +22,8 @@ export default function LocationComponents({
           handleChange={handleChange}
         />
       </div>
-      <Forms label='City' name='city' value={cityValue} handleChange={handleChange} />
-      <Forms label='State' name='state' value={stateValue} handleChange={handleChange} />
+      <Forms label='City' name='city' value={cityValue} handleChange={handleChange} flex='flex' />
+      <Forms label='State' name='state' value={stateValue} handleChange={handleChange} flex='flex' />
     </>
   )
 }

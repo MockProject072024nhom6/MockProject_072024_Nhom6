@@ -6,7 +6,7 @@ export default function GuardLayoutContent({ Layout, Header, Content }: I_Props_
     <Layout>
       <Header style={{ padding: 0, background: "white", height: "80px" }} />
       <Content style={{ margin: "24px 16px 0" }}>
-        <div className='p-2 min-h-[22.5rem] h-[39rem] bg-white rounded-lg'>
+        <div className='p-2 min-h-[22.5rem] bg-white rounded-lg'>
           <Outlet />
         </div>
       </Content>

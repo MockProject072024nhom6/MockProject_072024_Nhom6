@@ -23,7 +23,8 @@ interface I_Props_Forms {
   device?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
   type?: string
-  // setFieldValue?: (field: string, value: any, shouldValidate?: boolean) => void
+  flex?: string
+  disabled?: boolean
 }
 
 interface I_Props_Select {
@@ -39,12 +40,22 @@ interface I_Props_Date {
   label?: string
   placeholder?: string
   className?: string
+  disabled?: boolean
+}
+
+interface I_Props_Time {
+  label?: string
+  placeholder?: string
+  className?: string
+  disabled?: boolean
 }
 
 interface I_Props_TextArea {
   label?: string
   placeholder?: string
   minRows?: number
+  value?: string
+  disabled?: boolean
 }
 
 interface I_Props_AvatarForm {
@@ -85,6 +96,7 @@ interface I_Props_Input {
   placeholder?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
   multiple?: boolean
+  disabled?: boolean
 }
 
 interface I_Props_Tabs {
@@ -154,7 +166,7 @@ interface DayOffColumns {
   state: string
 }
 
-interface I_Props_TableDayOffComponents {
+interface I_Props_TableDayOff {
   column: TableProps<DayOffColumns>["columns"]
   data: DayOffColumns[]
 }
@@ -169,7 +181,7 @@ interface WorkingScheduleColumns {
   guard: string
 }
 
-interface I_Props_TableWorkingScheduleComponents {
+interface I_Props_WorkingScheduleComponents {
   column: TableProps<WorkingScheduleColumns>["columns"]
   data: WorkingScheduleColumns[]
 }

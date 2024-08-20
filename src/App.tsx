@@ -5,6 +5,7 @@ import { Bookmark, LayoutDashboard, MessageSquareText, SquareChevronDown } from 
 import WorkingScheduleRoute from "./Routes/WorkingScheduleRoute"
 import DashboardRoute from "./Routes/DashboardRoute"
 import DayOffRoute from "./Routes/DayOffRoute"
+import TrainingCourseRoute from "./Routes/TrainingCourseRoute"
 
 function App() {
   return (
@@ -21,15 +22,9 @@ function App() {
               />
             }
           >
-            {DashboardRoute.map((route, index) => (
-              <Route key={index} path={route.path} element={<route.element />} />
-            ))}
-            {DayOffRoute.map((route, index) => (
-              <Route key={index} path={route.path} element={<route.element />} />
-            ))}
-            {WorkingScheduleRoute.map((route, index) => (
-              <Route key={index} path={route.path} element={<route.element />} />
-            ))}
+            {[DashboardRoute, DayOffRoute, WorkingScheduleRoute, TrainingCourseRoute].map(routeList =>
+              routeList.map((route, index) => <Route key={index} path={route.path} element={<route.element />} />)
+            )}
           </Route>
         </Routes>
       </BrowserRouter>

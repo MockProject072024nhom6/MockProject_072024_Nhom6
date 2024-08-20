@@ -20,8 +20,8 @@ export default function ProfileComponents({ onNext }: I_Props_ProfileComponents)
       {({ handleChange, values, setFieldValue }) => (
         <Form className={`${guardStyle.form} relative`}>
           <AvatarForm avatar='avatar' gap='gap-20' setFieldValue={setFieldValue} />
-          <Forms label='full name' name='fullName' value={values.fullName} handleChange={handleChange} />
-          <Forms label='email' name='email' value={values.email} handleChange={handleChange} />
+          <Forms label='full name' name='fullName' value={values.fullName} handleChange={handleChange} flex='flex' />
+          <Forms label='email' name='email' value={values.email} handleChange={handleChange} flex='flex' />
           <PhoneComponents
             label='phone'
             name='phone'

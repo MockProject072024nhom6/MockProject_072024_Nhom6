@@ -1,7 +1,7 @@
 import { TableProps } from "antd"
 import { X } from "lucide-react"
 
-export default function ColumnDayOffComponents(): TableProps<DayOffColumns>["columns"] {
+export default function ColumnDayOff(): TableProps<DayOffColumns>["columns"] {
   const columns: TableProps<DayOffColumns>["columns"] = [
     {
       title: "Index",

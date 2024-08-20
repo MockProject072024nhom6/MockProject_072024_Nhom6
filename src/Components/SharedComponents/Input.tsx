@@ -9,12 +9,13 @@ export default function Input({
   accept,
   placeholder,
   handleChange,
-  multiple
+  multiple,
+  disabled
 }: I_Props_Input) {
   return (
-    <div>
+    <div className={className}>
       <input
-        className={className}
+        className='outline-none w-full'
         id={id}
         type={type}
         name={name}
@@ -23,6 +24,7 @@ export default function Input({
         placeholder={placeholder}
         onChange={handleChange}
         multiple={multiple}
+        disabled={disabled}
       />
     </div>
   )

@@ -2,7 +2,7 @@ import { Space, TableProps } from "antd"
 import { Eye, Pencil } from "lucide-react"
 import React from "react"
 
-export default function ColumnWorkingScheduleComponents() {
+export default function ColumnWorkingSchedule() {
   const columns: TableProps<DayOffColumns>["columns"] = [
     {
       title: "Index",
@@ -40,8 +40,8 @@ export default function ColumnWorkingScheduleComponents() {
       key: "action",
       render: _ => (
         <Space>
-          <Eye className='cursor-pointer' />
-          <Pencil className='cursor-pointer' />
+          <Pencil className='cursor-pointer' size={15} />
+          <Eye className='cursor-pointer' size={15} />
         </Space>
       )
     }

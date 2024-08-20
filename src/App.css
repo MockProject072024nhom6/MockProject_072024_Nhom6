@@ -39,3 +39,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.main-content {
+  display: flex;
+  flex-grow: 1; /* Để main-content chiếm phần còn lại của màn hình */
+}

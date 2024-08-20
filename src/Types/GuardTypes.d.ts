@@ -70,7 +70,7 @@ interface I_Props_Image {
 
 interface I_Props_Button {
   name?: string
-  position?: string
+  className?: string
   type?: "link" | "default" | "primary" | "dashed" | "text" | undefined
   onClick?: () => void
 }

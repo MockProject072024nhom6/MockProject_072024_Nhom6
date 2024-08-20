@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 import userImage from "../../Assets/user-image.png"
 
+const storedAvatar = localStorage.getItem("UPLOAD_AVATAR")
 const initialState = {
-  avatarImage: userImage,
-  uploadAvatar: ""
+  avatarImage: storedAvatar ? JSON.parse(storedAvatar) : userImage
 }
 
 const dashboardSlice = createSlice({
@@ -12,12 +12,9 @@ const dashboardSlice = createSlice({
   reducers: {
     setAvatarImage: (state, action) => {
       state.avatarImage = action.payload
-    },
-    setUploadAvatar: (state, action) => {
-      state.uploadAvatar = action.payload
     }
   }
 })
 
-export const { setAvatarImage, setUploadAvatar } = dashboardSlice.actions
+export const { setAvatarImage } = dashboardSlice.actions
 export default dashboardSlice.reducer

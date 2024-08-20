@@ -1,3 +1,5 @@
+import { ButtonGroupProps } from "antd/es/button"
+
 export const deviceList = ["Mobile", "Smartphone"]
 
 export const countryList = [
@@ -202,4 +204,21 @@ export const addressLine1List = ["individual", "enterprise"]
 
 export const guardMenu = ["Dashboard", "Day-off", "Working Schedule", "Training course"]
 
-export const paths = ["/guard/dashboard", "/guard/day-off", "/guard/working-schedule", "/guard/training-course"]
+export const guardPaths = ["/guard/dashboard", "/guard/day-off", "/guard/working-schedule", "/guard/training-course"]
+
+export const dayOffData: DayOffColumns[] = [
+  {
+    index: "1",
+    startDate: "19/08/2024",
+    endDate: "22/08/2024",
+    reason: "On leave",
+    state: "Approved"
+  },
+  {
+    index: "2",
+    startDate: "23/08/2024",
+    endDate: "27/08/2024",
+    reason: "Sick relative",
+    state: "No approve"
+  }
+]

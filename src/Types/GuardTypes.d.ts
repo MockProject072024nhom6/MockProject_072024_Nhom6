@@ -6,7 +6,7 @@ type LucideIcon = React.FC<LucideProps>
 interface I_Props_GuardLayout {
   menu: string[]
   itemList?: LucideIcon[]
-  paths?: string[]
+  guardPaths?: string[]
 }
 
 interface I_Props_GuardLayoutContent {
@@ -63,6 +63,18 @@ interface I_Props_Button {
   onClick?: () => void
 }
 
+interface I_Props_Input {
+  className?: string
+  id?: string
+  type?: string
+  name?: string
+  accept?: string
+  value?: string
+  placeholder?: string
+  handleChange?: (event: React.ChangeEvent<any>) => void
+  multiple?: boolean
+}
+
 interface I_Props_Tabs {
   profile?: string
   billingAddress?: string
@@ -71,8 +83,21 @@ interface I_Props_Tabs {
   values?: I_Props_Profile
 }
 
+interface I_Props_Table {
+  columns?: TableProps<DayOffColumns>["columns"]
+  data?: DayOffColumns[]
+}
+
 interface I_Props_InfoConfirm {
   label?: string
+}
+
+interface DayOffColumns {
+  index: string
+  startDate: string
+  endDate: string
+  reason: string
+  state: string
 }
 
 // Components
@@ -114,6 +139,11 @@ interface I_Props_AddressLine1 {
   list?: string[]
   value?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
+}
+
+interface I_Props_TableDayOffComponents {
+  columnDayOffComponents: TableProps<DayOffColumns>["columns"]
+  dayOffData: DayOffColumns[]
 }
 
 // Formik

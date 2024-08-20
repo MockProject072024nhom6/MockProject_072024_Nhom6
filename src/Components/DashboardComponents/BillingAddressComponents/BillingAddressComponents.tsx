@@ -1,11 +1,11 @@
 import { Form, Formik } from "formik"
-import { billingAddressObjects } from "../../Objects/Objects"
-import { addressLine1List, countryList } from "../../Arrays/Arrays"
+import { billingAddressObjects } from "../../../Objects/Objects"
+import { addressLine1List, countryList } from "../../../Arrays/Arrays"
 import AddressLine1Components from "./AddressLine1Components"
-import Forms from "../SharedComponents/Forms"
+import Forms from "../../SharedComponents/Forms"
 import LocationComponents from "./LocationComponents"
-import { guardStyle } from "../../Styles/GuardStyle"
-import Button from "../SharedComponents/Button"
+import { guardStyle } from "../../../Styles/GuardStyle"
+import Button from "../../SharedComponents/Button"
 
 export default function BillingAddressComponents({
   onPrevious,

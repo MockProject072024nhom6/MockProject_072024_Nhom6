@@ -1,4 +1,4 @@
-import { setAvatarImage, setUploadAvatar } from "../ReduxToolkit/Features/DashboardSlice"
+import { setAvatarImage } from "../ReduxToolkit/Features/DashboardSlice"
 
 export const handleUploadFiles = (
   e: React.ChangeEvent<any>,
@@ -21,8 +21,10 @@ export const handleImageUpload = (
   if (file) {
     reader.readAsDataURL(file)
     reader.onload = e => {
-      dispatch(setAvatarImage(e.target?.result))
+      const imgUrl = e.target?.result
+      dispatch(setAvatarImage(imgUrl))
       setFieldValue("avatar", file)
+      localStorage.setItem("UPLOAD_AVATAR", JSON.stringify(imgUrl))
     }
   }
 }
@@ -30,7 +32,6 @@ export const handleImageUpload = (
 export const handleFormData = (avatar: string, dispatch: any) => {
   const formData = new FormData()
   formData.append("avatar", avatar)
-  dispatch(setUploadAvatar(formData))
 }
 
 export const handleFileExplorerOpen = () => {

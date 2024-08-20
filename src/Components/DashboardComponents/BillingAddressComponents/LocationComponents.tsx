@@ -1,6 +1,6 @@
 import React from "react"
-import Select from "../SharedComponents/Select"
-import Forms from "../SharedComponents/Forms"
+import Select from "../../SharedComponents/Select"
+import Forms from "../../SharedComponents/Forms"
 
 export default function LocationComponents({
   list,

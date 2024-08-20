@@ -1,7 +1,7 @@
 import React from "react"
-import Select from "../SharedComponents/Select"
-import Forms from "../SharedComponents/Forms"
-import { deviceList } from "../../Arrays/Arrays"
+import Select from "../../SharedComponents/Select"
+import Forms from "../../SharedComponents/Forms"
+import { deviceList } from "../../../Arrays/Arrays"
 
 export default function PhoneComponents({ label, name, value, device, handleChange }: I_Props_Forms) {
   return (

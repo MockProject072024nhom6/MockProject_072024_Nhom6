@@ -1,12 +1,12 @@
-import { guardStyle } from "../../Styles/GuardStyle"
-import Forms from "../SharedComponents/Forms"
+import { guardStyle } from "../../../Styles/GuardStyle"
+import Forms from "../../SharedComponents/Forms"
 import { Form, Formik } from "formik"
-import AvatarForm from "../SharedComponents/AvatarForm"
-import { profileObject } from "../../Objects/Objects"
+import AvatarForm from "./AvatarForm"
+import { profileObject } from "../../../Objects/Objects"
 import PhoneComponents from "./PhoneComponents"
-import { handleFormData } from "../../Utils/HandleFunctions"
-import { useAppDispatch } from "../../ReduxToolkit/Store"
-import Button from "../SharedComponents/Button"
+import { handleFormData } from "../../../Utils/HandleFunctions"
+import { useAppDispatch } from "../../../ReduxToolkit/Store"
+import Button from "../../SharedComponents/Button"
 
 export default function ProfileComponents({ onNext }: I_Props_ProfileComponents): JSX.Element {
   const dispatch = useAppDispatch()

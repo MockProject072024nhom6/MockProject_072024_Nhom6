@@ -5,12 +5,12 @@ import XPressGuards from "../../Assets/x-press-guards.jpg"
 import Image from "../../Components/SharedComponents/Image"
 import { NavLink } from "react-router-dom"
 
-export default function GuardLayout({ menu, itemList, paths }: I_Props_GuardLayout): JSX.Element {
+export default function GuardLayout({ menu, itemList, guardPaths }: I_Props_GuardLayout): JSX.Element {
   const { Header, Content, Sider } = Layout
   const handleNavMenu = () =>
     itemList?.map((icon, index) => (
       <Menu.Item key={String(index + 1)} icon={React.createElement(icon)}>
-        <NavLink to={paths ? paths[index] : ""}>{menu[index]}</NavLink>
+        <NavLink to={guardPaths ? guardPaths[index] : ""}>{menu[index]}</NavLink>
       </Menu.Item>
     ))
   return (

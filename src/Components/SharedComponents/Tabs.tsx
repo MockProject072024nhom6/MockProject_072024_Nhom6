@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Tabs as Tab } from "antd"
 import TabPane from "antd/es/tabs/TabPane"
-import ProfileComponents from "../ProfileComponents/ProfileComponents"
-import BillingAddressComponents from "../BillingAddressComponents/BillingAddressComponents"
-import ConfirmationComponents from "../ConfirmationComponents/ConfirmationComponents"
+import ProfileComponents from "../DashboardComponents/ProfileComponents/ProfileComponents"
+import BillingAddressComponents from "../DashboardComponents/BillingAddressComponents/BillingAddressComponents"
+import ConfirmationComponents from "../DashboardComponents/ConfirmationComponents/ConfirmationComponents"
 
 export default function Tabs({ profile, billingAddress, confirmation }: I_Props_Tabs): JSX.Element {
   const [activeKey, setActiveKey] = useState("1")

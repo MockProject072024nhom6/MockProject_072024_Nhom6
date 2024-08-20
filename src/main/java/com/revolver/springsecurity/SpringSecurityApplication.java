@@ -31,7 +31,7 @@ public class SpringSecurityApplication {
 					.password("admin")
 					.role(Role.ADMIN)
 					.build();
-			System.out.println("Admin token: " +  authenticationService.register(admin).getAccessToken());
+			System.out.println("Admin token: " +  authenticationService.registerForAdmin(admin).getAccessToken());
 			var manager  = RegisterRequest.builder()
 					.firstName("Default")
 					.lastName("Manager")
@@ -39,7 +39,35 @@ public class SpringSecurityApplication {
 					.password("manager")
 					.role(Role.MANAGER)
 					.build();
-			System.out.println("Manager token: " +  authenticationService.register(manager).getAccessToken());
+			System.out.println("Manager token: " +  authenticationService.registerForAdmin(manager).getAccessToken());
+			var staff  = RegisterRequest.builder()
+					.firstName("Default")
+					.lastName("Staff")
+					.email("staff@gmail.com")
+					.password("staff")
+					.role(Role.STAFF)
+					.build();
+			System.out.println("Staff token: " +  authenticationService.registerForAdmin(staff).getAccessToken());
+			var guard  = RegisterRequest.builder()
+					.firstName("Default")
+					.lastName("Guard")
+					.email("guard@gmail.com")
+					.password("guard")
+					.role(Role.GUARD)
+					.build();
+			System.out.println("Guard token: " +  authenticationService.registerForAdmin(guard).getAccessToken());
+			var customer  = RegisterRequest.builder()
+					.firstName("Default")
+					.lastName("Customer")
+					.email("customer@gmail.com")
+					.password("customer")
+					.role(Role.CUSTOMER)
+					.build();
+			System.out.println("Customer token: " +  authenticationService.registerForAdmin(customer).getAccessToken());
+
+
+
+
 		};
 	}
 

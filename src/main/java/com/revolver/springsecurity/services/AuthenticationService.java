@@ -13,10 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -31,6 +28,28 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenResponse register(RegisterRequest request) {
+        try {
+            var user = User.builder()
+                    .firstName(request.getFirstName())
+                    .lastName(request.getLastName())
+                    .email(request.getEmail())
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .role(request.getRole())
+                    .email(request.getEmail())
+                    .build();
+            var savedUser = userRepository.save(user);
+            var jwtToken = jwtService.generateToken(savedUser);
+            var refreshToken = jwtService.generateRefreshToken(savedUser);
+
+            return AuthenResponse.builder()
+                    .accessToken(jwtToken)
+                    .refreshToken(refreshToken)
+                    .build();
+        }catch (Exception e){
+            return null;
+        }
+    }
+    public AuthenResponse registerForAdmin(RegisterRequest request) {
         try {
             var user = User.builder()
                     .firstName(request.getFirstName())

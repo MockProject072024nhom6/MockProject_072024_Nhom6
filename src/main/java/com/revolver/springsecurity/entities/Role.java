@@ -25,7 +25,22 @@ public enum Role {
             MANAGER_READ,
             MANAGER_CREATE,
             MANAGER_UPDATE,
-            MANAGER_DELETE
+            MANAGER_DELETE,
+
+            STAFF_READ,
+            STAFF_CREATE,
+            STAFF_UPDATE,
+            STAFF_DELETE,
+
+            GUARD_READ,
+            GUARD_CREATE,
+            GUARD_UPDATE,
+            GUARD_DELETE,
+
+            CUSTOMER_READ,
+            CUSTOMER_CREATE,
+            CUSTOMER_UPDATE,
+            CUSTOMER_DELETE
         )
     ),
     MANAGER(
@@ -34,6 +49,30 @@ public enum Role {
             MANAGER_CREATE,
             MANAGER_UPDATE,
             MANAGER_DELETE
+        )
+    ),
+    STAFF(
+        Set.of(
+            STAFF_READ,
+            STAFF_CREATE,
+            STAFF_UPDATE,
+            STAFF_DELETE
+        )
+    ),
+    GUARD(
+        Set.of(
+            GUARD_READ,
+            GUARD_CREATE,
+            GUARD_UPDATE,
+            GUARD_DELETE
+        )
+    ),
+    CUSTOMER(
+        Set.of(
+            CUSTOMER_READ,
+            CUSTOMER_CREATE,
+            CUSTOMER_UPDATE,
+            CUSTOMER_DELETE
         )
     );
 

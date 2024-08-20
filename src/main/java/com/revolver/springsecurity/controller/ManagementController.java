@@ -1,9 +1,11 @@
 package com.revolver.springsecurity.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/management")
+@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
 public class ManagementController {
     @GetMapping
     public String get(){

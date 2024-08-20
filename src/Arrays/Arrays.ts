@@ -1,5 +1,3 @@
-import { ButtonGroupProps } from "antd/es/button"
-
 export const deviceList = ["Mobile", "Smartphone"]
 
 export const countryList = [
@@ -222,3 +220,27 @@ export const dayOffData: DayOffColumns[] = [
     state: "No approve"
   }
 ]
+
+export const workingScheduleData: WorkingScheduleColumns[] = [
+  {
+    index: "1",
+    mission: "Test nueva version",
+    date: "22/08/2024",
+    time: "18:00",
+    status: "Completed",
+    customerName: "Phuoc Khuat",
+    guard: "Phuoc Khuat"
+  },
+  {
+    index: "2",
+    mission: "Event monitoring",
+    date: "26/08/2024",
+    time: "13:00",
+    status: "Reviewed",
+    customerName: "Phuoc Khuat",
+    guard: "Phuoc Khuat"
+  }
+]
+
+export const exportList = ["Export", "PDF", "Word"]
+export const filterList = ["Filter", "Mission", "Date", "Time", "Status", "Customer name", "Guards"]

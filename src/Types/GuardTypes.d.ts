@@ -95,21 +95,14 @@ interface I_Props_Tabs {
   values?: I_Props_Profile
 }
 
+type AnyObject = { [key: string]: any }
 interface I_Props_Table {
-  columns?: TableProps<DayOffColumns>["columns"]
-  data?: DayOffColumns[]
+  columns?: TableProps<DayOffColumns | WorkingScheduleColumns>["columns"]
+  data?: DayOffColumns[] | WorkingScheduleColumns[]
 }
 
 interface I_Props_InfoConfirm {
   label?: string
-}
-
-interface DayOffColumns {
-  index: string
-  startDate: string
-  endDate: string
-  reason: string
-  state: string
 }
 
 // Components
@@ -153,9 +146,32 @@ interface I_Props_AddressLine1 {
   handleChange?: (event: React.ChangeEvent<any>) => void
 }
 
+interface DayOffColumns {
+  index: string
+  startDate: string
+  endDate: string
+  reason: string
+  state: string
+}
+
 interface I_Props_TableDayOffComponents {
-  columnDayOffComponents: TableProps<DayOffColumns>["columns"]
-  dayOffData: DayOffColumns[]
+  column: TableProps<DayOffColumns>["columns"]
+  data: DayOffColumns[]
+}
+
+interface WorkingScheduleColumns {
+  index: string
+  mission: string
+  date: string
+  time: string
+  status: string
+  customerName: string
+  guard: string
+}
+
+interface I_Props_TableWorkingScheduleComponents {
+  column: TableProps<WorkingScheduleColumns>["columns"]
+  data: WorkingScheduleColumns[]
 }
 
 // Formik

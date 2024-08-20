@@ -32,7 +32,7 @@ export default function ColumnDayOffComponents(): TableProps<DayOffColumns>["col
       title: "",
       dataIndex: "action",
       key: "action",
-      render: (_, record) => <X className='cursor-pointer' />
+      render: _ => <X className='cursor-pointer' />
     }
   ]
   return columns

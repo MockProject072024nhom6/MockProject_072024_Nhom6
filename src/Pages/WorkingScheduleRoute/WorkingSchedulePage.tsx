@@ -1,6 +1,18 @@
 import React from "react"
-import Tables from "../../Components/SharedComponents/Table"
+import { guardStyle } from "../../Styles/GuardStyle"
+import TableWorkingScheduleComponents from "../../Components/WorkingSchedulePageComponents/TableWorkingScheduleComponents/TableWorkingScheduleComponents"
+import ColumnWorkingScheduleComponents from "../../Components/WorkingSchedulePageComponents/TableWorkingScheduleComponents/ColumnWorkingScheduleComponents"
+import { workingScheduleData } from "../../Arrays/Arrays"
 
 export default function WorkingSchedulePage() {
-  return <div>{/* <Tables columns={} /> */}</div>
+  const column = ColumnWorkingScheduleComponents()
+  return (
+    <section>
+      <div className={guardStyle.container}>
+        <div className='flex'>
+          <TableWorkingScheduleComponents column={column} data={workingScheduleData} />
+        </div>
+      </div>
+    </section>
+  )
 }

@@ -2,6 +2,7 @@ import React from "react"
 import Input from "../../SharedComponents/Input"
 import Tables from "../../SharedComponents/Table"
 import { guardStyle } from "../../../Styles/GuardStyle"
+import { I_Props_TableDayOff } from "../../../Types/GuardTypes"
 
 export default function TableDayOff({ column, data }: I_Props_TableDayOff) {
   return (

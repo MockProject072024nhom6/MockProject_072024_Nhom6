@@ -1,3 +1,49 @@
+import { DayOffColumns, WorkingScheduleColumns } from "../Types/GuardTypes"
+
+export const guardMenu = ["Dashboard", "Day-off", "Working Schedule", "Training course"]
+
+export const guardPaths = ["/guard/dashboard", "/guard/day-off", "/guard/working-schedule", "/guard/training-course"]
+
+export const dayOffData: DayOffColumns[] = [
+  {
+    index: "1",
+    startDate: "19/08/2024",
+    endDate: "22/08/2024",
+    reason: "On leave",
+    state: "Approved"
+  },
+  {
+    index: "2",
+    startDate: "23/08/2024",
+    endDate: "27/08/2024",
+    reason: "Sick relative",
+    state: "No approve"
+  }
+]
+
+export const workingScheduleData: WorkingScheduleColumns[] = [
+  {
+    index: "1",
+    mission: "Test nueva version",
+    date: "22/08/2024",
+    time: "18:00",
+    status: "Completed",
+    customerName: "Phuoc Khuat",
+    guard: "Phuoc Khuat"
+  },
+  {
+    index: "2",
+    mission: "Event monitoring",
+    date: "26/08/2024",
+    time: "13:00",
+    status: "Reviewed",
+    customerName: "Phuoc Khuat",
+    guard: "Phuoc Khuat"
+  }
+]
+
+export const exportList = ["Export", "PDF", "Word"]
+export const filterList = ["Filter", "Mission", "Date", "Time", "Status", "Customer name", "Guards"]
 export const deviceList = ["Mobile", "Smartphone"]
 
 export const countryList = [
@@ -199,48 +245,3 @@ export const countryList = [
 ]
 
 export const addressLine1List = ["individual", "enterprise"]
-
-export const guardMenu = ["Dashboard", "Day-off", "Working Schedule", "Training course"]
-
-export const guardPaths = ["/guard/dashboard", "/guard/day-off", "/guard/working-schedule", "/guard/training-course"]
-
-export const dayOffData: DayOffColumns[] = [
-  {
-    index: "1",
-    startDate: "19/08/2024",
-    endDate: "22/08/2024",
-    reason: "On leave",
-    state: "Approved"
-  },
-  {
-    index: "2",
-    startDate: "23/08/2024",
-    endDate: "27/08/2024",
-    reason: "Sick relative",
-    state: "No approve"
-  }
-]
-
-export const workingScheduleData: WorkingScheduleColumns[] = [
-  {
-    index: "1",
-    mission: "Test nueva version",
-    date: "22/08/2024",
-    time: "18:00",
-    status: "Completed",
-    customerName: "Phuoc Khuat",
-    guard: "Phuoc Khuat"
-  },
-  {
-    index: "2",
-    mission: "Event monitoring",
-    date: "26/08/2024",
-    time: "13:00",
-    status: "Reviewed",
-    customerName: "Phuoc Khuat",
-    guard: "Phuoc Khuat"
-  }
-]
-
-export const exportList = ["Export", "PDF", "Word"]
-export const filterList = ["Filter", "Mission", "Date", "Time", "Status", "Customer name", "Guards"]

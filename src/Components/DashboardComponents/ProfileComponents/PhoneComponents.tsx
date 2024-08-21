@@ -3,6 +3,7 @@ import Select from "../../SharedComponents/Select"
 import Forms from "../../SharedComponents/Forms"
 import { deviceList } from "../../../Arrays/Arrays"
 import { guardStyle } from "../../../Styles/GuardStyle"
+import { I_Props_Forms } from "../../../Types/GuardTypes"
 
 export default function PhoneComponents({ label, name, value, device, handleChange }: I_Props_Forms) {
   return (

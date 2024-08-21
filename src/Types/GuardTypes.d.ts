@@ -1,22 +1,21 @@
 // I_props: data type using for props.
-
 // Layout
 type LucideIcon = React.FC<LucideProps>
 
-interface I_Props_GuardLayout {
+export interface I_Props_GuardLayout {
   menu: string[]
   itemList?: LucideIcon[]
   guardPaths?: string[]
 }
 
-interface I_Props_GuardLayoutContent {
+export interface I_Props_GuardLayoutContent {
   Layout: React.Element
   Header: React.Element
   Content: React.Element
 }
 
 // SharedComponents
-interface I_Props_Forms {
+export interface I_Props_Forms {
   label?: string
   name?: string
   value?: string
@@ -27,7 +26,7 @@ interface I_Props_Forms {
   disabled?: boolean
 }
 
-interface I_Props_Select {
+export interface I_Props_Select {
   name?: string
   value?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
@@ -36,21 +35,21 @@ interface I_Props_Select {
   border?: string
 }
 
-interface I_Props_Date {
+export interface I_Props_Date {
   label?: string
   placeholder?: string
   className?: string
   disabled?: boolean
 }
 
-interface I_Props_Time {
+export interface I_Props_Time {
   label?: string
   placeholder?: string
   className?: string
   disabled?: boolean
 }
 
-interface I_Props_TextArea {
+export interface I_Props_TextArea {
   label?: string
   placeholder?: string
   minRows?: number
@@ -58,7 +57,7 @@ interface I_Props_TextArea {
   disabled?: boolean
 }
 
-interface I_Props_AvatarForm {
+export interface I_Props_AvatarForm {
   avatar?: string
   userImage?: string
   justify?: string
@@ -66,7 +65,7 @@ interface I_Props_AvatarForm {
   setFieldValue?: (field: string, value: any, shouldValidate?: boolean) => void
 }
 
-interface I_Props_Image {
+export interface I_Props_Image {
   src?: string
   alt?: string
   width?: string
@@ -79,14 +78,14 @@ interface I_Props_Image {
   justify?: string
 }
 
-interface I_Props_Button {
+export interface I_Props_Button {
   name?: string
   className?: string
   type?: "link" | "default" | "primary" | "dashed" | "text" | undefined
   onClick?: () => void
 }
 
-interface I_Props_Input {
+export interface I_Props_Input {
   className?: string
   id?: string
   type?: string
@@ -99,7 +98,7 @@ interface I_Props_Input {
   disabled?: boolean
 }
 
-interface I_Props_Tabs {
+export interface I_Props_Tabs {
   profile?: string
   billingAddress?: string
   confirmation?: string
@@ -108,17 +107,18 @@ interface I_Props_Tabs {
 }
 
 type AnyObject = { [key: string]: any }
-interface I_Props_Table {
+export interface I_Props_Table {
   columns?: TableProps<DayOffColumns | WorkingScheduleColumns>["columns"]
   data?: DayOffColumns[] | WorkingScheduleColumns[]
 }
 
-interface I_Props_InfoConfirm {
+export interface I_Props_InfoConfirm {
   label?: string
 }
 
 // Components
-interface I_Props_Profile {
+
+export interface I_Props_Profile {
   avatar: string
   fullName: string
   email: string
@@ -131,20 +131,20 @@ interface I_Props_Profile {
   userImage?: string
 }
 
-interface I_Props_ProfileComponents {
+export interface I_Props_ProfileComponents {
   onNext: () => void
 }
 
-interface I_Props_BillingAddressComponents {
+export interface I_Props_BillingAddressComponents {
   onPrevious: () => void
   onNext: () => void
 }
 
-interface I_Props_ConfirmationComponents {
+export interface I_Props_ConfirmationComponents {
   onEdit: () => void
 }
 
-interface I_Props_Location {
+export interface I_Props_Location {
   list: string[]
   locationValue?: string
   cityValue?: string
@@ -152,13 +152,13 @@ interface I_Props_Location {
   handleChange?: (event: React.ChangeEvent<any>) => void
 }
 
-interface I_Props_AddressLine1 {
+export interface I_Props_AddressLine1 {
   list?: string[]
   value?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
 }
 
-interface DayOffColumns {
+export interface DayOffColumns {
   index: string
   startDate: string
   endDate: string
@@ -166,12 +166,12 @@ interface DayOffColumns {
   state: string
 }
 
-interface I_Props_TableDayOff {
+export interface I_Props_TableDayOff {
   column: TableProps<DayOffColumns>["columns"]
   data: DayOffColumns[]
 }
 
-interface WorkingScheduleColumns {
+export interface WorkingScheduleColumns {
   index: string
   mission: string
   date: string
@@ -181,16 +181,11 @@ interface WorkingScheduleColumns {
   guard: string
 }
 
-interface I_Props_WorkingScheduleComponents {
-  column: TableProps<WorkingScheduleColumns>["columns"]
-  data: WorkingScheduleColumns[]
-}
-
 // Formik
 type setFieldValue = (field: string, value: any, shouldValidate?: boolean) => void
 
 // I_props: data type using for style.
-interface I_Style_GuardStyle {
+export interface I_Style_GuardStyle {
   container: string
 }
 export interface I_props_HeaderInPageHome {

@@ -4,6 +4,7 @@ import TabPane from "antd/es/tabs/TabPane"
 import ProfileComponents from "../DashboardComponents/ProfileComponents/ProfileComponents"
 import BillingAddressComponents from "../DashboardComponents/BillingAddressComponents/BillingAddressComponents"
 import ConfirmationComponents from "../DashboardComponents/ConfirmationComponents/ConfirmationComponents"
+import { I_Props_Tabs } from "../../Types/GuardTypes"
 
 export default function Tabs({ profile, billingAddress, confirmation }: I_Props_Tabs): JSX.Element {
   const [activeKey, setActiveKey] = useState("1")

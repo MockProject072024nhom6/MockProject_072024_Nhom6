@@ -13,8 +13,17 @@ export default {
         background_profile: "url('./Assets/images/background_profile.png')"
       },
       fontFamily: {
+        roboto: "Roboto",
+        palanquin: "Palanquin",
+        montserrat: "Montserrat",
         headings: ["Inter", "sans-serif"],
         content: ["Noto Serif Georgian", "sans-serif"]
+      },
+      colors: {
+        header: "#1E56F8"
+      },
+      boxShadow: {
+        blueShadow: "10px 10px 80px 10px rgba(0, 34, 255, 0.15)"
       }
     }
   },

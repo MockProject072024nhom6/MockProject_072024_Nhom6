@@ -4,6 +4,7 @@ import GuardLayoutContent from "./GuardLayoutContent"
 import XPressGuards from "../../Assets/x-press-guards.jpg"
 import Image from "../../Components/SharedComponents/Image"
 import { NavLink } from "react-router-dom"
+import { I_Props_GuardLayout } from "../../Types/GuardTypes"
 
 export default function GuardLayout({ menu, itemList, guardPaths }: I_Props_GuardLayout): JSX.Element {
   const { Header, Content, Sider } = Layout

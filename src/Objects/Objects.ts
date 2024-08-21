@@ -1,3 +1,22 @@
+import { I_Props_Profile } from "../Types/GuardTypes"
+
+export const customerSignupObject = {
+  firstName: "",
+  lastName: "",
+  phoneNumber: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  gender: "",
+  country: "",
+  state: "",
+  city: ""
+}
+
+export const customerLoginObject = {
+  email: "",
+  password: ""
+}
 export const profileObject: I_Props_Profile = {
   avatar: "",
   fullName: "",

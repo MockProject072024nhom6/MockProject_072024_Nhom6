@@ -1,5 +1,6 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
+import { I_Props_GuardLayoutContent } from "../../Types/GuardTypes"
 
 export default function GuardLayoutContent({ Layout, Header, Content }: I_Props_GuardLayoutContent) {
   return (

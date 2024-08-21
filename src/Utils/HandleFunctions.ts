@@ -1,4 +1,5 @@
 import { setAvatarImage } from "../ReduxToolkit/Features/DashboardSlice"
+import { setFieldValue } from "../Types/GuardTypes"
 
 export const handleUploadFiles = (
   e: React.ChangeEvent<any>,

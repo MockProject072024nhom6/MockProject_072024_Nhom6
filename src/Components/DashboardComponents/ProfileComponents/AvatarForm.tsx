@@ -5,6 +5,7 @@ import { handleFileExplorerOpen, handleImageUpload } from "../../../Utils/Handle
 import Image from "../../SharedComponents/Image"
 import { useAppDispatch, useAppSelector } from "../../../ReduxToolkit/Store"
 import Input from "../../SharedComponents/Input"
+import { I_Props_AvatarForm } from "../../../Types/GuardTypes"
 
 export default function AvatarForm({ avatar, justify, gap, setFieldValue }: I_Props_AvatarForm): JSX.Element {
   const { avatarImage } = useAppSelector(state => state.DashboardSlice)
@@ -29,7 +30,7 @@ export default function AvatarForm({ avatar, justify, gap, setFieldValue }: I_Pr
           type='file'
           id='fileInput'
           accept='image/jpg,image/png,image/jpeg'
-          handleChange={e => {
+          handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setFieldValue ? handleImageUpload(e, setFieldValue, dispatch) : ""
           }}
           className='hidden' // Hidden input file

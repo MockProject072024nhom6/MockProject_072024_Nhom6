@@ -8,7 +8,8 @@ import typescriptPlugin from "@typescript-eslint/eslint-plugin"
 export default tseslint.config({
   extends: [
     js.configs.recommended,
-    ...tseslint.configs.recommended,
+    ...tseslint.configs.stylisticTypeChecked,
+    ...tseslint.configs.recommendedTypeChecked,
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -23,11 +24,16 @@ export default tseslint.config({
   languageOptions: {
     parser: typescriptParser,
     ecmaVersion: 2020,
-    globals: globals.browser
+    globals: globals.browser,
+    parserOptions: {
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+      tsconfigRootDir: import.meta.dirname
+    }
   },
   plugins: ["prettier", "react", "react-hooks", "@typescript-eslint", "promise", "jsx-a11y", "import"],
   rules: {
     ...reactHooks.configs.recommended.rules,
+    ...react.configs["jsx-runtime"].rules,
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     ...typescriptPlugin.configs.recommended.rules,
     "prettier/prettier": [
@@ -74,6 +80,7 @@ export default tseslint.config({
       typescript: {
         project: "./tsconfig.json"
       }
-    }
+    },
+    react: { version: "18.3" }
   }
 })

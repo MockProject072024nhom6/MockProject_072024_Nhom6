@@ -1,4 +1,5 @@
 import React from "react"
+import { I_Props_Input } from "../../Types/GuardTypes"
 
 export default function Input({
   className,

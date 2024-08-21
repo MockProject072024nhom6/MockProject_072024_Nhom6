@@ -15,6 +15,9 @@ import ServiceManagementPage from "./Pages/SecurityServices/ServiceManagementPag
 import HeaderStaff from "./ComponentsStaff/HeaderStaff.tsx"
 import NavbarStaff from "./ComponentsStaff/NavbarStaff.tsx"
 import ContractStaff from "./Pages/ContractStaff.tsx"
+import CustomerLayout from "./Layouts/CustomerLayout/CustomerLayout"
+import AuthenticationRoute from "./Routes/AuthenticationRoute"
+import CustomerRoute from "./Routes/CustomerRoute"
 
 function App() {
   const data = [
@@ -59,6 +62,14 @@ function App() {
           <Route path='/price' element={<PriceServicesPage />} />
           <Route path='/profile' element={<PersonalInformationPage />} />
           <Route path='/manager' element={<ServiceManagementPage />} />
+          <Route path='/customer' element={<CustomerLayout />}>
+            {CustomerRoute.map((route, index) => (
+              <Route key={index} path={route.path} element={<route.element />} />
+            ))}
+          </Route>
+          {AuthenticationRoute.map((route, index) => (
+            <Route key={index} path={route.path} element={<route.element />} />
+          ))}
         </Routes>
       </BrowserRouter>
       <div className='flex flex-col h-screen'>
@@ -84,61 +95,3 @@ function App() {
 }
 
 export default App
-
-// const [count, setCount] = useState(0)
-//   const priceData = [
-//     {
-//       id: "001",
-//       name: "Service 1",
-//       price: "$100",
-//       holidayPrice: "$120",
-//       term: "12 Months",
-//       serviceDetails: "Details here"
-//     },
-//     {
-//       id: "002",
-//       name: "Service 2",
-//       price: "$200",
-//       holidayPrice: "$240",
-//       term: "6 Months",
-//       serviceDetails: "Details here"
-//     },
-//     {
-//       id: "003",
-//       name: "Service 3",
-//       price: "$150",
-//       holidayPrice: "$180",
-//       term: "1 Year",
-//       serviceDetails: "Details here"
-//     },
-//   ];
-
-//   const user = {
-//     name: "John Doe",
-//     location: "India",
-//     imageSrc: "https://via.placeholder.com/40"
-//   };
-//   return (
-//     <div className="flex flex-col h-screen">
-//       {/* Header */}
-//       <div className="w-full">
-//       <HeaderStaff
-//         userName={user.name}
-//         userLocation={user.location}
-//         userImageSrc={user.imageSrc}
-//       />
-//       </div>
-
-//       <div className="flex flex-1">
-//         {/* Navbar */}
-//         <div className="w-1/4 lg:w-1/5">
-//           <NavbarStaff />
-//         </div>
-
-//         {/* Main Content */}
-//         <div className="flex-1 p-4">
-//         <PriceStaff data={priceData} />
-//         </div>
-//       </div>
-//     </div>
-//   )

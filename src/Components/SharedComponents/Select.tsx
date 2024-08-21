@@ -1,4 +1,5 @@
 import React from "react"
+import { I_Props_Select } from "../../Types/GuardTypes"
 
 export default function Select({ name, value, handleChange, list, width, border }: I_Props_Select) {
   return (

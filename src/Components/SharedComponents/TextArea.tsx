@@ -1,5 +1,6 @@
 import TextArea from "antd/es/input/TextArea"
 import React, { useState } from "react"
+import { I_Props_TextArea } from "../../Types/GuardTypes"
 
 export default function TextAreas({ label, placeholder, minRows, value, disabled }: I_Props_TextArea) {
   const [values, setValues] = useState("")

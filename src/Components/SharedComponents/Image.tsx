@@ -1,4 +1,5 @@
 import React from "react"
+import { I_Props_Image } from "../../Types/GuardTypes"
 
 export default function Image({
   src,

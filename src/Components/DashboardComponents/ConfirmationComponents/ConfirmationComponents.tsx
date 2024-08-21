@@ -9,7 +9,7 @@ export default function ConfirmationComponents({ onEdit }: I_Props_ConfirmationC
   const { avatarImage } = useAppSelector(state => state.DashboardSlice)
   return (
     <section className={`${guardStyle.form} mt-16 relative h-96`}>
-      <div className='absolute -top-14 left-[40%]'>
+      <div className='absolute -top-14 sm:left-[40%] left-[34%]'>
         <Image
           src={avatarImage}
           alt='Avatar logo'

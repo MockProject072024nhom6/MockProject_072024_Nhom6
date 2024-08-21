@@ -10,7 +10,7 @@ export default function AvatarForm({ avatar, justify, gap, setFieldValue }: I_Pr
   const { avatarImage } = useAppSelector(state => state.DashboardSlice)
   const dispatch = useAppDispatch()
   return (
-    <div className={`flex items-center ${justify} ${gap}`}>
+    <div className={`flex items-center ${justify} sm:${gap} gap-5`}>
       <label>{avatar}</label>
       <div className='relative'>
         <Image

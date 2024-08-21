@@ -12,7 +12,7 @@ export default function WorkingSchedulePage() {
     <section>
       <div className={guardStyle.container}>
         <h3 className={guardStyle.headingSchedule}>schedule details</h3>
-        <div className={guardStyle.inputStyle}>
+        <div className={`${guardStyle.inputStyle} overflow-x-auto`}>
           <NavbarSchedule />
           <Tables columns={column} data={workingScheduleData} />
         </div>

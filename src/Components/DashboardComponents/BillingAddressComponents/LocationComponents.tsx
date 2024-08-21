@@ -1,6 +1,7 @@
 import React from "react"
 import Select from "../../SharedComponents/Select"
 import Forms from "../../SharedComponents/Forms"
+import { guardStyle } from "../../../Styles/GuardStyle"
 
 export default function LocationComponents({
   list,
@@ -11,7 +12,7 @@ export default function LocationComponents({
 }: I_Props_Location) {
   return (
     <>
-      <div className='flex gap-20 items-center'>
+      <div className={guardStyle.flexSM}>
         <label>Location</label>
         <Select
           list={list}

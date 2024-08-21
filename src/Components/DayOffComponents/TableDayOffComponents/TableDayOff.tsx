@@ -5,7 +5,7 @@ import { guardStyle } from "../../../Styles/GuardStyle"
 
 export default function TableDayOff({ column, data }: I_Props_TableDayOff) {
   return (
-    <div className={`${guardStyle.form} px-5`}>
+    <div className={`${guardStyle.form} px-5 overflow-x-auto`}>
       <h3 className='font-bold text-xl'>List of leave applications</h3>
       <div className='flex justify-between gap-10 my-3'>
         <Input placeholder='Search...' className={guardStyle.inputStyle} />

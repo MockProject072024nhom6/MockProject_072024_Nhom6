@@ -7,7 +7,7 @@ const ContractTable: React.FC<I_props_ContractTable> = ({ contracts }) => {
   const [searchStartDate, setSearchStartDate] = useState('');
   const [searchContractCode, setSearchContractCode] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 15;
 
   const filteredContracts = contracts.filter(contract => {
     return (
@@ -74,7 +74,7 @@ const ContractTable: React.FC<I_props_ContractTable> = ({ contracts }) => {
           value={searchStartDate}
           onChange={e => setSearchStartDate(e.target.value)}
         />
-        <button className="ml-20">Add service</button>
+        <button className="ml-20 bg-blue-500 text-white">Add service</button>
       </div>
 
       {/* Table */}

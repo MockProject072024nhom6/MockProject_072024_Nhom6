@@ -20,7 +20,7 @@ const LogoutButton: React.FC = () => {
     <div className="flex justify-end mx-72 my-20">
       <button
         onClick={handleLogoutClick}
-        className="bg-gray-300 text-blue-500 p-2 rounded"
+        className="bg-gray-300 text-blue-500 px-5 rounded-lg"
       >
         Logout
       </button>

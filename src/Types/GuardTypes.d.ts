@@ -70,3 +70,13 @@ export interface I_props_Contract {
 export interface I_props_ContractTable {
   contracts: I_props_Contract[];
 }
+export interface I_props_ButtonBlue {
+  buttonText: string;
+  className?: string;
+  onClick?: () => void;
+}
+export interface I_props_ButtonBlack {
+  buttonText: string;
+  className?: string;
+  onClick?: () => void;
+}

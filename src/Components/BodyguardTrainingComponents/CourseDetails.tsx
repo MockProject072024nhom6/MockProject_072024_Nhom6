@@ -1,8 +1,8 @@
 import React from 'react';
-
+import ButtonBlack from '../ShareComponents/ButtonBlack';
 const CourseDetails: React.FC = () => {
   return (
-    <div className="text-black mx-32 py-10">
+    <div className="text-black mx-32 py-10 text-justify">
       <p className="py-5 font-extrabold text-blue-800">What You Need To Know</p>
       <p className="font-extrabold pb-5">Class G Firearm Licenses in Florida</p>
       <p className="pb-5 font-extrabold text-2xl">
@@ -122,6 +122,9 @@ const CourseDetails: React.FC = () => {
         for our G Firearm license class, call or message us today. We are
         available 7 days a week.
       </p>
+      <div className="flex justify-center">
+        <ButtonBlack buttonText={'Call Now'} />
+      </div>
     </div>
   );
 };

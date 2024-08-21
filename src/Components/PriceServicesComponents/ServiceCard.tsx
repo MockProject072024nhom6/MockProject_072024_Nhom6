@@ -10,7 +10,7 @@ const ServiceCard: React.FC<I_props_ServiceCard> = ({
   vipBadge,
 }) => {
   return (
-    <div className="flex bg-white rounded-lg shadow-lg p-4 mb-4 mx-32">
+    <div className="flex bg-white rounded-lg shadow-lg p-14 mb-4 mx-32">
       <img src={image} alt={title} className="w-32 h-32 rounded-lg" />
       <div className="flex flex-col justify-between ml-4 flex-grow">
         <div>

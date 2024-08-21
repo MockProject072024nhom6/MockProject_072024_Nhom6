@@ -4,6 +4,8 @@ import MissionStatementAndServices from '../../Components/AboutXPressGuardsCompo
 import ServiceDetails from '../../Components/AboutXPressGuardsComponents/ServiceDetails';
 import Achievements from '../../Components/AboutXPressGuardsComponents/Achievements';
 import TestimonialsCarousel from '../../Components/ShareComponents/TestimonialsCarousel';
+import Security from '../../Components/AboutXPressGuardsComponents/Security';
+import ButtonBlue from '../../Components/ShareComponents/ButtonBlue';
 
 const AboutXPressGuardsPage: React.FC = () => {
   return (
@@ -21,10 +23,13 @@ const AboutXPressGuardsPage: React.FC = () => {
         officeLocations={614}
         statesServed={50}
       />
-      <div className="text-black p-10">
-        <div className="bg-guard-background bg-center p-36 bg-no-repeat"></div>
+      <Security />
+      <div className="px-40">
+        <TestimonialsCarousel />
       </div>
-      <TestimonialsCarousel />
+      <div className="flex justify-center py-5">
+        <ButtonBlue buttonText="(866) 407-4342 ->" />
+      </div>
     </main>
   );
 };

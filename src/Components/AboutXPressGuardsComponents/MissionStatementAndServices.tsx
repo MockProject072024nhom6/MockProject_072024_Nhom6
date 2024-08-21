@@ -3,7 +3,9 @@ import React from 'react';
 const MissionStatementAndServices: React.FC = () => {
   return (
     <div className="text-center mx-32">
-      <p className="text-blue-800 pt-10">Mission Statement and Services</p>
+      <p className="text-blue-800 font-extrabold pt-20">
+        Mission Statement and Services
+      </p>
       <p className="text-4xl text-black font-extrabold pb-10">
         About XPressGuards
       </p>

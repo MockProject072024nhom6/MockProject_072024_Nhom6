@@ -11,6 +11,7 @@ const PriceServicesPage: React.FC = () => {
         page="Home"
       />
       <ServiceList />
+
       <Testimonials />
     </main>
   );

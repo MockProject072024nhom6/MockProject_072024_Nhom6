@@ -1,5 +1,5 @@
 import React from 'react';
-import imageProfile from '../../assets/images/avata.jpg';
+import imageProfile from '../../assets/images/avatar.jpg';
 import { I_props_Avatar } from '../../Types/GuardTypes';
 
 const Avatar: React.FC<I_props_Avatar> = ({

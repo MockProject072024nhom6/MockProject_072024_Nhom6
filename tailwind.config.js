@@ -9,6 +9,8 @@ export default {
         'guard-background': "url('./Assets/images/background_guard.jpg')",
         background_carousel: "url('./Assets/images/background_guard.png')",
         background_profile: "url('./Assets/images/background_profile.png')",
+        background_world: "url('./Assets/images/background_world.png')",
+        avatar: "url('./Assets/images/avatar.jpg",
       },
       // maxWidth: {
       //   xl: '90rem',

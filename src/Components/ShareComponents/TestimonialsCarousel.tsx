@@ -5,19 +5,19 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { I_props_Testimonial } from '../../Types/GuardTypes';
-
+import avatar from '../../assets/images/avatar.jpg';
 const testimonials: I_props_Testimonial[] = [
   {
     name: 'James Bell',
     position: 'Operations Manager',
-    image: '',
+    image: avatar,
     feedback:
       "Our construction site needs year round security. It's a very big construction project in Midtown New York, and XPressGuards offers the best full service security service we found within our budget. I can vouch for XPressGuards. We hope to continue a long relationship with this security firm.",
   },
   {
     name: 'James Bell',
     position: 'Operations Manager',
-    image: '',
+    image: avatar,
     feedback:
       "Our construction site needs year round security. It's a very big construction project in Midtown New York, and XPressGuards offers the best full service security service we found within our budget. I can vouch for XPressGuards. We hope to continue a long relationship with this security firm.",
   },
@@ -25,7 +25,7 @@ const testimonials: I_props_Testimonial[] = [
 
 const TestimonialsCarousel: React.FC = () => {
   return (
-    <section className="bg-gray-100 py-5">
+    <section className="border-2 stroke-transparent rounded-lg shadow-lg ">
       <div className="container mx-auto">
         <Swiper
           spaceBetween={50}
@@ -35,7 +35,7 @@ const TestimonialsCarousel: React.FC = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-lg">
+              <div className="flex flex-col items-center text-center bg-white p-20 rounded-lg m-30">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
@@ -44,8 +44,10 @@ const TestimonialsCarousel: React.FC = () => {
                 <h3 className="text-xl font-semibold text-black">
                   {testimonial.name}
                 </h3>
-                <p className="text-blue-600">{testimonial.position}</p>
-                <p className="text-gray-700 mt-4">“{testimonial.feedback}”</p>
+                <div className="py-10">
+                  <p className="text-blue-600">{testimonial.position}</p>
+                  <p className="text-gray-700 mt-4">“{testimonial.feedback}”</p>
+                </div>
               </div>
             </SwiperSlide>
           ))}

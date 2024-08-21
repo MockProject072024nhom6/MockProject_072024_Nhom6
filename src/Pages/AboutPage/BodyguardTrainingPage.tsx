@@ -3,7 +3,7 @@ import TrainingInfo from '../../Components/BodyguardTrainingComponents/TrainingI
 import CourseDetails from '../../Components/BodyguardTrainingComponents/CourseDetails';
 import TestimonialsSection from '../../Components/BodyguardTrainingComponents/TestimonialsSection';
 import HeaderInPageHome from '../../Components/ShareComponents/HeaderInPageHome';
-
+import ButtonBlue from '../../Components/ShareComponents/ButtonBlue';
 const BodyguardTrainingPage: React.FC = () => {
   return (
     <div>
@@ -16,7 +16,12 @@ const BodyguardTrainingPage: React.FC = () => {
       <hr />
       <CourseDetails />
       <hr />
-      <TestimonialsSection />
+      <div className="px-40">
+        <TestimonialsSection />
+      </div>
+      <div className="flex justify-center py-5">
+        <ButtonBlue buttonText="(866) 407-4342 ->" />
+      </div>
     </div>
   );
 };

@@ -1,13 +1,7 @@
+import { style } from "@/Styles/CustomerAuthenticationStyle"
 import { useField } from "formik"
 
-type InputProps = {
-  label: string
-  type: string
-  name: string
-  placeholder?: string
-}
-
-const CustomInput: React.FC<InputProps> = ({ label, ...props }) => {
+const CustomInput = ({ label, ...props }: I_Props_CustomInput) => {
   const [field, meta] = useField(props.name)
 
   return (
@@ -21,7 +15,7 @@ const CustomInput: React.FC<InputProps> = ({ label, ...props }) => {
         <>
           <p className='text-[13px] mb-[6px] font-medium'>{label}</p>
           <input
-            className={`w-full h-10 px-2 border-[1px] border-black/30 rounded-[5px] ${meta.error && meta.touched && "input-error"}`}
+            className={`${style.customInput} ${meta.error && meta.touched && "input-error"}`}
             {...field}
             {...props}
           />

@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import GuardLayout from "./Layouts/GuardLayout/GuardLayout"
-import LoginPage from "./Pages/CustomerPages/LoginPage"
-import SignUpPage from "./Pages/CustomerPages/SignUpPage"
+import CustomerLayout from "./Layouts/CustomerLayout/CustomerLayout"
 import GuardRoute from "./Routes/DashboardRoute"
+import AuthenticationRoute from "./Routes/AuthenticationRoute"
+import CustomerRoute from "./Routes/CustomerRoute"
 
 function App() {
   return (
@@ -14,8 +15,14 @@ function App() {
               <Route key={index} path={route.path} element={<route.element />} />
             ))}
           </Route>
-          <Route path='customer/login' element={<LoginPage />} />
-          <Route path='customer/signup' element={<SignUpPage />} />
+          <Route path='/customer' element={<CustomerLayout />}>
+            {CustomerRoute.map((route, index) => (
+              <Route key={index} path={route.path} element={<route.element />} />
+            ))}
+          </Route>
+          {AuthenticationRoute.map((route, index) => (
+            <Route key={index} path={route.path} element={<route.element />} />
+          ))}
         </Routes>
       </BrowserRouter>
     </>

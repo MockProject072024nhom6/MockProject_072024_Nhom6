@@ -18,3 +18,21 @@ export const billingAddressObjects = {
   zipCode: "",
   experience: ""
 }
+
+export const customerSignupObject = {
+  firstName: "",
+  lastName: "",
+  phoneNumber: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  gender: "",
+  country: "",
+  state: "",
+  city: ""
+}
+
+export const customerLoginObject = {
+  email: "",
+  password: ""
+}

@@ -245,3 +245,21 @@ export const countryList = [
 ]
 
 export const addressLine1List = ["individual", "enterprise"]
+
+export const userList = [
+  {
+    id: "001",
+    customerName: "John Doe",
+    startDate: "2024-08-01",
+    endDate: "2024-08-15",
+    requestDate: "2024-07-20",
+    status: "approved", // "pending", "notApproved", "rejected"
+    serviceDetails: "Security service for a 2-week event"
+  }
+]
+
+export const user = {
+  name: "Jane Smith",
+  location: "Vietnam",
+  imageSrc: "https://via.placeholder.com/40"
+}

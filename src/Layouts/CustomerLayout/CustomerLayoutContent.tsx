@@ -7,10 +7,9 @@ export default function CustomerLayoutContent({ Layout, Header, Content, Footer 
       <Layout>
         <Header />
         <Content>
-          <div className='my-10 flex flex-col items-center'>
-            <Outlet />
-          </div>
+          <Outlet />
         </Content>
+        <Footer />
       </Layout>
     </>
   )

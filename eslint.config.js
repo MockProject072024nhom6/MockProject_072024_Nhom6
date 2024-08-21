@@ -8,6 +8,7 @@ import typescriptPlugin from "@typescript-eslint/eslint-plugin"
 export default tseslint.config({
   extends: [
     js.configs.recommended,
+    ...tseslint.configs.recommended,
     ...tseslint.configs.stylisticTypeChecked,
     ...tseslint.configs.recommendedTypeChecked,
     "eslint:recommended",

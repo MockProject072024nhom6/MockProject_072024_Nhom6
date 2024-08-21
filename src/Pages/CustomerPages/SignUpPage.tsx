@@ -14,7 +14,7 @@ const SignUpPage = () => {
         <BackButton />
         <FormSignup />
         <div className='text-[13px] mt-2 font-medium'>
-          Already have an account? <Link to='/customer/login'>Login</Link>
+          Already have an account? <Link to='/login'>Login</Link>
         </div>
       </div>
     </div>

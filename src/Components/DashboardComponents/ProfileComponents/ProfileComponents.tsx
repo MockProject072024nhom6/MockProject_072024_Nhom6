@@ -7,6 +7,7 @@ import PhoneComponents from "./PhoneComponents"
 import { handleFormData } from "../../../Utils/HandleFunctions"
 import { useAppDispatch } from "../../../ReduxToolkit/Store"
 import Button from "../../SharedComponents/Button"
+import { I_Props_ProfileComponents } from "../../../Types/GuardTypes"
 
 export default function ProfileComponents({ onNext }: I_Props_ProfileComponents): JSX.Element {
   const dispatch = useAppDispatch()

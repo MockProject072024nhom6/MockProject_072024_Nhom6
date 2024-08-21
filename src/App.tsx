@@ -6,6 +6,12 @@ import WorkingScheduleRoute from "./Routes/WorkingScheduleRoute"
 import DashboardRoute from "./Routes/DashboardRoute"
 import DayOffRoute from "./Routes/DayOffRoute"
 import TrainingCourseRoute from "./Routes/TrainingCourseRoute"
+import AboutXPressGuardsPage from "./Pages/AboutPage/AboutXPressGuardsPage"
+import ContactUsPage from "./Pages/ContactPage/ContactUsPage"
+import BodyguardTrainingPage from "./Pages/AboutPage/BodyguardTrainingPage"
+import PriceServicesPage from "./Pages/SecurityServices/PriceServicesPage"
+import PersonalInformationPage from "./Pages/PersonalInformationPage"
+import ServiceManagementPage from "./Pages/SecurityServices/ServiceManagementPage"
 
 function App() {
   return (
@@ -26,6 +32,12 @@ function App() {
               routeList.map((route, index) => <Route key={index} path={route.path} element={<route.element />} />)
             )}
           </Route>
+          <Route path='/contact' element={<ContactUsPage />} />
+          <Route path='/guard' element={<AboutXPressGuardsPage />} />
+          <Route path='/training' element={<BodyguardTrainingPage />} />
+          <Route path='/price' element={<PriceServicesPage />} />
+          <Route path='/profile' element={<PersonalInformationPage />} />
+          <Route path='/manager' element={<ServiceManagementPage />} />
         </Routes>
       </BrowserRouter>
     </>

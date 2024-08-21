@@ -16,13 +16,13 @@ const locations = [
 
 const ContactLocations: React.FC = () => {
   return (
-    <div className="mx-5 grid grid-cols-3 grid-rows-3 gap-2 p-10">
+    <div className="mx-5 grid grid-cols-3 grid-rows-2 gap-2 p-10">
       {locations.map((location, index) => (
         <div key={index} className="border-2 rounded-lg hover:bg-slate-100">
           <div className="p-2 text-black">
             <h4 className="font-semibold text-lg">{location.name}</h4>
             <p>{location.address}</p>
-            <button className="bg-white text-blue-500 shadow-lg">
+            <button className="bg-white text-blue-500 shadow-lg text-sm">
               {location.phone}
             </button>
           </div>

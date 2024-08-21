@@ -16,7 +16,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className=" border-2 rounded-lg  my-auto">
+    <div className=" border-2 rounded-lg ">
       <form className="space-y-4 p-2 text-black" onSubmit={handleSubmit}>
         <h2>Contact Form</h2>
         <SelectInput

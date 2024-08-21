@@ -74,7 +74,9 @@ const ContractTable: React.FC<I_props_ContractTable> = ({ contracts }) => {
           value={searchStartDate}
           onChange={e => setSearchStartDate(e.target.value)}
         />
-        <button className="ml-20 bg-blue-500 text-white">Add service</button>
+        <button className="ml-10 bg-blue-500 text-white rounder-lg text-sm">
+          Add service
+        </button>
       </div>
 
       {/* Table */}

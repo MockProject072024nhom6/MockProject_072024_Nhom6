@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=db_MockProject_2024;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: root
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+application:
+  security:
+    jwt:
+      secret: 254d762d256a3b3f712c3c345c372c5e535a414c2c555e6f315b793c50
+      expired:
+        access:  1000000
+        refresh:  2592000000
+server:
+  port: 8090
+
+debug: true

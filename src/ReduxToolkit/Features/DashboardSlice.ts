@@ -3,9 +3,10 @@ import userImage from "../../Assets/user-image.png"
 import { billingAddressObjects, profileObject } from "../../Objects/Objects"
 
 const storedAvatar = localStorage.getItem("UPLOAD_AVATAR")
+const savedProfileInfo = localStorage.getItem("SAVE_PROFILE_INFO")
 const initialState = {
   avatarImage: storedAvatar ? JSON.parse(storedAvatar) : userImage,
-  profileData: profileObject,
+  profileData: savedProfileInfo ? JSON.parse(savedProfileInfo) : profileObject,
   billingAddressData: billingAddressObjects
 }
 

@@ -13,13 +13,13 @@ export default function Tabs({ profile, billingAddress, confirmation }: I_Props_
   }
   return (
     <Tab type='card' activeKey={activeKey} onChange={handleTabChange}>
-      <TabPane tab={<>{profile}</>} key='1'>
+      <TabPane tab={<>{profile}</>} key='1' disabled>
         <ProfileComponents onNext={() => handleTabChange("2")} />
       </TabPane>
-      <TabPane tab={<>{billingAddress}</>} key='2' id='billingAddress'>
+      <TabPane tab={<>{billingAddress}</>} key='2' id='billingAddress' disabled>
         <BillingAddressComponents onPrevious={() => handleTabChange("1")} onNext={() => handleTabChange("3")} />
       </TabPane>
-      <TabPane tab={<>{confirmation}</>} key='3'>
+      <TabPane tab={<>{confirmation}</>} key='3' disabled>
         <ConfirmationComponents onEdit={() => handleTabChange("1")} />
       </TabPane>
     </Tab>

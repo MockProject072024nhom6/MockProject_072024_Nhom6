@@ -1,5 +1,5 @@
 import { setAvatarImage } from "../ReduxToolkit/Features/DashboardSlice"
-import { setFieldValue } from "../Types/GuardTypes"
+import { I_BillingAddress, I_Props_Profile, setFieldValue } from "../Types/GuardTypes"
 
 export const handleUploadFiles = (
   e: React.ChangeEvent<any>,
@@ -30,11 +30,17 @@ export const handleImageUpload = (
   }
 }
 
-export const handleFormData = (avatar: string, dispatch: any) => {
+export const handleFormData = (avatar: string) => {
   const formData = new FormData()
   formData.append("avatar", avatar)
 }
 
 export const handleFileExplorerOpen = () => {
   document.getElementById("fileInput")?.click()
+}
+
+export const handleSaveInfo = (profileData: I_Props_Profile, billingAddressData: I_BillingAddress) => {
+  localStorage.setItem("SAVE_PROFILE_INFO", JSON.stringify(profileData))
+  localStorage.setItem("SAVE_BILLING_INFO", JSON.stringify(billingAddressData))
+  console.log("🚀 ~ handleSaveInfo ~ profileData:", profileData)
 }

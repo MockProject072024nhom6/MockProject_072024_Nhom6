@@ -5,6 +5,7 @@ import { useAppSelector } from "../../../ReduxToolkit/Store"
 import { guardStyle } from "../../../Styles/GuardStyle"
 import Button from "../../SharedComponents/Button"
 import { I_Profile_Billing, I_Props_ConfirmationComponents } from "../../../Types/GuardTypes"
+import { handleSaveInfo } from "../../../Utils/HandleFunctions"
 
 export default function ConfirmationComponents({ onEdit }: I_Props_ConfirmationComponents): JSX.Element {
   const { avatarImage, profileData, billingAddressData } = useAppSelector(state => state.DashboardSlice)
@@ -25,7 +26,13 @@ export default function ConfirmationComponents({ onEdit }: I_Props_ConfirmationC
           <InfoConfirm key={key} label={key} value={combinedData[key]} />
         ))}
       </div>
-      <Button name='Save in draff' className='absolute right-16 -bottom-14' />
+      <Button
+        name='Save in draff'
+        className='absolute right-16 -bottom-14'
+        onClick={() => {
+          handleSaveInfo(profileData, billingAddressData)
+        }}
+      />
       <Button name='Edit' className='absolute right-0 -bottom-14' type='primary' onClick={onEdit} />
     </section>
   )

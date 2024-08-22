@@ -16,7 +16,7 @@ export default function ProfileComponents({ onNext }: I_Props_ProfileComponents)
     <Formik
       initialValues={profileObject}
       onSubmit={values => {
-        handleFormData(values.avatar, dispatch)
+        handleFormData(values.avatar)
         onNext()
         dispatch(setProfileData(values))
       }}

@@ -1,4 +1,5 @@
 <?php
+// GUARD MANAGEMENT
 // Database connection
 $servername = "localhost";
 $username = "root"; // Replace with your DB username
@@ -49,6 +50,7 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XpressGuards - Security Guard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- STYLE -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -260,7 +262,7 @@ $result = $conn->query($sql);
     </div>
 </div>
 
-<!-- The Modal (Add New Board) -->
+<!-- ADD NEW GUARD BOARD -->
 <div id="addNewModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>

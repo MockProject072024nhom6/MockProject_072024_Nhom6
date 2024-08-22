@@ -2,6 +2,7 @@ import { ChevronDown, ChevronRight } from "lucide-react"
 import React, { useState } from "react"
 
 const QandA = () => {
+  // Mảng nên để sang Array.ts
   const data = [
     {
       question: "What measures are in place to ensure the safety and reliability of your security guards?",

@@ -15,7 +15,7 @@ const FormSignup = () => {
       initialValues={{
         customerSignupObject
       }}
-      onSubmit={() => navigate("/customer/login")}
+      onSubmit={() => navigate("/login")}
       validationSchema={SignUpSchema}
       validateOnChange={true}
       validateOnBlur={true}

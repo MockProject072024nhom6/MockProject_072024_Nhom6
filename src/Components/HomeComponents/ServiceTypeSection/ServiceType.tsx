@@ -50,6 +50,7 @@ const ServiceType = () => {
         <ArrowRight size='50px' onClick={handleNext} />
       </div>
       <div>
+        {/* Có thể tái sử dụng, tạo file style.ts để chứa */}
         <div className='absolute bg-white w-1/5 lg:top-0 top-1/4 bottom-0 left-0'></div>
         <div className='absolute bg-white w-1/5 lg:top-0 top-1/4 bottom-0 right-0'></div>
       </div>

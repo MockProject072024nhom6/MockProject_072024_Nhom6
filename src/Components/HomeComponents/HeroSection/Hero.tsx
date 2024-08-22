@@ -9,7 +9,7 @@ const Hero = () => {
       <img
         src={getImageUrl("images/banner.png")}
         alt='banner'
-        className='lg:w-screen h-[60vh] object-cover h-[80vh] lg:h-[125vh]'
+        className='lg:w-screen h-[60vh] object-cover lg:h-[125vh]'
       />
       <div className={heroStyle.content}>
         <div className={heroStyle.heading1}>XPressGuards</div>

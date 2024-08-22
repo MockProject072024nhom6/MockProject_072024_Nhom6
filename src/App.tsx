@@ -16,6 +16,13 @@ import CustomerLayout from "./Layouts/CustomerLayout/CustomerLayout"
 import AuthenticationRoute from "./Routes/AuthenticationRoute"
 import CustomerRoute from "./Routes/CustomerRoute"
 import MaintainPrice from "./Pages/MaintainPrice/MaintainPrice"
+import ContractDetails from "./Pages/ReviewContract"
+import AddPrice from "./Pages/ChangePrice"
+import ContractStaff from "./Pages/ContractStaff"
+import PriceStaff from "./Pages/PriceStaff"
+import DashboardPage from "./Pages/DashboardPage/DashboardPage"
+import MyComponent from "./Components/Message/Message"
+import NavbarStaff from "./ComponentsStaff/NavbarStaff"
 
 function App() {
   return (
@@ -47,13 +54,21 @@ function App() {
             <Route key={index} path={route.path} element={<route.element />} />
           ))}
           <Route path='/contact' element={<ContactUsPage />} />
-          <Route path='/guard' element={<AboutXPressGuardsPage />} />
+          <Route path='/about-us' element={<AboutXPressGuardsPage />} />
           <Route path='/training' element={<BodyguardTrainingPage />} />
-          <Route path='/price' element={<PriceServicesPage />} />
+          <Route path='/price-service-list' element={<PriceServicesPage />} />
           <Route path='/profile' element={<PersonalInformationPage />} />
-          <Route path='/manager' element={<ServiceManagementPage />} />
           {/* Staff */}
-          <Route path='/staff/maintain-price' element={<MaintainPrice />} />
+          <Route path='/staff'>
+            <Route path='maintain-price' element={<MaintainPrice />} />
+            <Route path='add-price' element={<AddPrice />} />
+            <Route path='price-staff' element={<PriceStaff />} />
+            <Route path='dashboard' element={<DashboardPage />} />
+            <Route path='contract' element={<ServiceManagementPage />} />
+          </Route>
+          <Route path='/manager'>
+            <Route path='preview-contract' element={<ContractDetails />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -35,7 +35,12 @@ function Header() {
             </a>
           </span>
         </div>
-
+        <nav className='flex gap-5'>
+          <NavLink to='/price-service-list'>Services</NavLink>
+          <NavLink to='/about-us'>About us</NavLink>
+          <NavLink to='/training'>Training</NavLink>
+          <NavLink to='/contact'>Contact</NavLink>
+        </nav>
         {/* Phần chứa các icon mạng xã hội */}
         <div className={socialIconsContainer}>
           <a href='#' className={socialIcon}>

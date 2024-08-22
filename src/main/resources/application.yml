@@ -27,18 +27,23 @@
 
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=mock_project_072024;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://8.219.101.238:1433;databaseName=MockProject_072024;encrypt=true;trustServerCertificate=true
     username: sa
-    password: 12345678
+    password: YourPassword123
   servlet:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
       enabled: true
+  flyway:
+    url: jdbc:sqlserver://8.219.101.238:1433;databaseName=MockProject_072024;encrypt=true;trustServerCertificate=true
+    user: sa
+    password: YourPassword123
+    schemas: MockProject_072024
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

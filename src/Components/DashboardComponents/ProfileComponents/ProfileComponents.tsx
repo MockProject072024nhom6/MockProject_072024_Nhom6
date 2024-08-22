@@ -8,6 +8,7 @@ import { handleFormData } from "../../../Utils/HandleFunctions"
 import { useAppDispatch } from "../../../ReduxToolkit/Store"
 import Button from "../../SharedComponents/Button"
 import { I_Props_ProfileComponents } from "../../../Types/GuardTypes"
+import { setProfileData } from "../../../ReduxToolkit/Features/DashboardSlice"
 
 export default function ProfileComponents({ onNext }: I_Props_ProfileComponents): JSX.Element {
   const dispatch = useAppDispatch()
@@ -16,9 +17,11 @@ export default function ProfileComponents({ onNext }: I_Props_ProfileComponents)
       initialValues={profileObject}
       onSubmit={values => {
         handleFormData(values.avatar, dispatch)
+        onNext()
+        dispatch(setProfileData(values))
       }}
     >
-      {({ handleChange, values, setFieldValue }) => (
+      {({ handleChange, values, setFieldValue, handleSubmit }) => (
         <Form className={`${guardStyle.form} relative`}>
           <AvatarForm avatar='avatar' gap='gap-20' setFieldValue={setFieldValue} />
           <Forms label='full name' name='fullName' value={values.fullName} handleChange={handleChange} flex='flex' />
@@ -33,7 +36,7 @@ export default function ProfileComponents({ onNext }: I_Props_ProfileComponents)
           <Forms label='organization' name='organization' value={values.organization} handleChange={handleChange} />
           <Forms label='department' name='department' value={values.department} handleChange={handleChange} />
           <Forms label='account type' name='accountType' value={values.accountType} handleChange={handleChange} />
-          <Button name='Next' type='primary' className='absolute right-0 -bottom-10' onClick={onNext} />
+          <Button name='Next' type='primary' className='absolute right-0 -bottom-10' onClick={handleSubmit} />
         </Form>
       )}
     </Formik>

@@ -1,6 +1,7 @@
 import { PencilIcon } from "lucide-react"
 import React from "react"
 import { guardStyle } from "../../Styles/GuardStyle"
+import { I_Props_AvatarForm } from "../../Types/GuardTypes"
 
 export default function AvatarForm({ avatar, userImage }: I_Props_AvatarForm) {
   return (

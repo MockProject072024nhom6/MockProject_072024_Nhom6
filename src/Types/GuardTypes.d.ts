@@ -114,21 +114,27 @@ export interface I_Props_Table {
 
 export interface I_Props_InfoConfirm {
   label?: string
+  value?: string
 }
 
 // Components
 
 export interface I_Props_Profile {
-  avatar: string
-  fullName: string
-  email: string
-  phone: string
-  device: string
-  organization: string
-  department: string
-  accountType: string
-  profileObject?: I_Props_Profile
-  userImage?: string
+  [key: string]: string
+}
+
+export interface I_BillingAddress {
+  location: string
+  city: string
+  state: string
+  addressLine1: string
+  certificate: string
+  zipCode: string
+  experience: string
+}
+
+export interface I_Profile_Billing {
+  [key: string]: string
 }
 
 export interface I_Props_ProfileComponents {

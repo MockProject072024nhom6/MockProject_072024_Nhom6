@@ -1,5 +1,6 @@
 import { TableProps } from "antd"
 import { X } from "lucide-react"
+import { DayOffColumns } from "../../../Types/GuardTypes"
 
 export default function ColumnDayOff(): TableProps<DayOffColumns>["columns"] {
   const columns: TableProps<DayOffColumns>["columns"] = [

@@ -1,4 +1,4 @@
-import { I_Props_Profile } from "../Types/GuardTypes"
+import { I_BillingAddress, I_Props_Profile } from "../Types/GuardTypes"
 
 export const customerSignupObject = {
   firstName: "",
@@ -12,7 +12,6 @@ export const customerSignupObject = {
   state: "",
   city: ""
 }
-
 export const customerLoginObject = {
   email: "",
   password: ""
@@ -28,7 +27,7 @@ export const profileObject: I_Props_Profile = {
   accountType: ""
 }
 
-export const billingAddressObjects = {
+export const billingAddressObjects: I_BillingAddress = {
   location: "",
   city: "",
   state: "",

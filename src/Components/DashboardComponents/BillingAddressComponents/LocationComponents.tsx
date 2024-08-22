@@ -2,6 +2,7 @@ import React from "react"
 import Select from "../../SharedComponents/Select"
 import Forms from "../../SharedComponents/Forms"
 import { guardStyle } from "../../../Styles/GuardStyle"
+import { I_Props_Location } from "../../../Types/GuardTypes"
 
 export default function LocationComponents({
   list,

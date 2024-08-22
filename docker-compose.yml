@@ -1,23 +1,20 @@
-version: '3'
-services:
-  postgres:
-    image: postgres-container
-    environment:
-      POSTGRES_PASSWORD: postgres
-    networks:
-      - spring-network
-    ports:
-      - "5432:5432"
+version: "3.9"
 
-  your-app:
-    build: .
+services:
+
+  api-service:
+    container_name: api-service
+    image: foxfessor/mockproject:1.0
+#    restart: always
     ports:
       - "8080:8080"
-    networks:
-      - spring-network
-    depends_on:
-      - postgres-container
-
-networks:
-  your-network-name:
-    driver: bridge
+    environment:
+      spring.datasource.url: jdbc:sqlserver://192.168.48.1:1433;databaseName=mock_project_072024;encrypt=true;trustServerCertificate=true
+      spring.datasource.username: sa
+      spring.datasource.password: 12345678
+#    networks:
+#      - my_network
+#
+#networks:
+#  my_network:
+#    driver: bridge

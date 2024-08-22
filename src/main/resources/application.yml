@@ -27,9 +27,10 @@
 
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=mock_project_072024;encrypt=true;trustServerCertificate=true
+#    url: jdbc:sqlserver://192.168.48.1:1433;databaseName=mock_project_072024;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://8.219.101.238:1433;databaseName=MockProject_072024;encrypt=true;trustServerCertificate=true
     username: sa
-    password: 12345678
+    password: YourPassword123
   servlet:
     multipart:
       max-file-size: 10MB

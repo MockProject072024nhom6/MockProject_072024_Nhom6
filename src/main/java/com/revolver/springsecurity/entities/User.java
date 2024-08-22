@@ -1,5 +1,6 @@
 package com.revolver.springsecurity.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +13,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -23,7 +26,7 @@ import java.util.List;
 public class User implements UserDetails {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Integer user_id;
     private String firstName;
     private String lastName;
     private String email;
@@ -39,7 +42,9 @@ public class User implements UserDetails {
     private String organization;
     private String accountType;
     private boolean isDeleted;
-
+//    @OneToMany(mappedBy = "user_id", fetch = FetchType.LAZY)
+//    @JsonIgnore
+//    private Set<Feedback> feedback = new HashSet<>();
 
 
     @Override
@@ -75,4 +80,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }

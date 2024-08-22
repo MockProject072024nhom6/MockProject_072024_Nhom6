@@ -1,4 +1,5 @@
 <?php
+// CUSTOMER MANAGEMENT EDIT
 // Database connection
 $servername = "localhost";
 $username = "root"; // Replace with your DB username

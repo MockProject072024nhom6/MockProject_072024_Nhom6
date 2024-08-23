@@ -18,16 +18,73 @@ router.use((request, response, next) => {
     next();
   });
 
+  // router.route('/training').get((request, response) => {
+  //   dboperations.getTrainings().then((result) => {
+  //     response.json(result[0]);
+  //   })
+  // })
+
+  // router.route('/training/:training_id').get((request, response) => {
+  //   dboperations.getTraining(request.params.training_id).then((result) => {
+  //     response.json(result[0]);
+  //   })
+  // })
+
+  // router.route('/training').post((request, response) => { 
+
+  //   let training = {...request.body}
+
+  //   dboperations.addTraining(trainingraining).then((result) => {
+  //     response.status(500).json(result);
+  //   })
+  // })
+
   router.route('/training').get((request, response) => {
-    dboperations.getTraining().then((result) => {
-      response.json(result[0]);
-    })
-  })
+    dboperations.getTrainings().then((result) => {
+        if (result && result.length > 0) {
+            response.json(result[0]);
+        } else {
+            response.status(404).send('No training data found');
+        }
+    }).catch(error => {
+        console.error(error);
+        response.status(500).send('Error retrieving trainings');
+    });
+});
+
+router.route('/training/:training_id').get((request, response) => {
+    dboperations.getTraining(request.params.training_id).then((result) => {
+        if (result && result.length > 0) {
+            response.json(result[0]);
+        } else {
+            response.status(404).send('Training not found');
+        }
+    }).catch(error => {
+        console.error(error);
+        response.status(500).send('Error retrieving training');
+    });
+});
+
+router.route('/training').post((request, response) => {
+    let training = { ...request.body };
+
+    dboperations.addTraining(training).then((result) => {
+        if (result && result.length > 0) {
+            response.status(201).json(result[0]);
+        } else {
+            response.status(500).send('Error adding training');
+        }
+    }).catch(error => {
+        console.error(error);
+        response.status(500).send('Error adding training');
+    });
+});
+
 
 var  port = process.env.PORT || 8090;
 app.listen(port);
 console.log('Training API is runnning at ' + port);
 
-dboperations.getTraining().then( result =>{
+dboperations.getTrainings().then( result =>{
     console.log(result);
 })

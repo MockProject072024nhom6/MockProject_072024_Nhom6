@@ -80,6 +80,19 @@ router.route('/training').post((request, response) => {
     });
 });
 
+router.route('/training/:training_id').delete((request, response) => {
+  dboperations.deleteTraining(request.params.training_id).then((result) => {
+      if (result > 0) {  // Kiểm tra nếu có bản ghi bị xóa
+          response.status(200).send('Training deleted successfully');
+      } else {
+          response.status(404).send('Training not found');
+      }
+  }).catch(error => {
+      console.error(error);
+      response.status(500).send('Error deleting training');
+  });
+});
+
 
 var  port = process.env.PORT || 8090;
 app.listen(port);

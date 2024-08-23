@@ -48,10 +48,21 @@ async  function  addTraining(training) {
     }
   }
   
-
+  async function deleteTraining(trainingId) {
+    try {
+        let pool = await sql.connect(config);
+        let result = await pool.request()
+            .input('input_parameter', sql.VarChar, trainingId)
+            .query("DELETE FROM Training WHERE training_id = @input_parameter");
+        return result.rowsAffected;  // Trả về số hàng bị ảnh hưởng bởi truy vấn
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports ={
     getTrainings : getTrainings,
     getTraining : getTraining,
-    addTraining : addTraining
+    addTraining : addTraining,
+    deleteTraining : deleteTraining
 }

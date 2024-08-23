@@ -1,5 +1,4 @@
 <?php
-// GUARD MANAGEMENT
 // Database connection
 $servername = "localhost";
 $username = "root"; // Replace with your DB username
@@ -12,7 +11,35 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-// Check if form is submitted
+
+// Initialize filter variables
+$nameFilter = isset($_GET['name']) ? $_GET['name'] : '';
+$statusFilter = isset($_GET['status']) ? $_GET['status'] : '';
+$addressFilter = isset($_GET['address']) ? $_GET['address'] : '';
+$guardIdFilter = isset($_GET['guard_id']) ? $_GET['guard_id'] : '';
+
+// Build the SQL query with filters
+$sql = "SELECT * FROM guards WHERE 1=1";
+
+if (!empty($nameFilter)) {
+    $sql .= " AND name LIKE '%$nameFilter%'";
+}
+
+if (!empty($statusFilter)) {
+    $sql .= " AND status = '$statusFilter'";
+}
+
+if (!empty($addressFilter)) {
+    $sql .= " AND address LIKE '%$addressFilter%'";
+}
+
+if (!empty($guardIdFilter)) {
+    $sql .= " AND guard_id LIKE '%$guardIdFilter%'";
+}
+
+$result = $conn->query($sql);
+
+// If form is submitted, handle the insertion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
     $name = $_POST['name'];
@@ -37,10 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the statement
     $stmt->close();
 }
-
-// Fetch guards data
-$sql = "SELECT * FROM guards";
-$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +73,6 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XpressGuards - Security Guard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- STYLE -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -262,7 +284,7 @@ $result = $conn->query($sql);
     </div>
 </div>
 
-<!-- ADD NEW GUARD BOARD -->
+<!-- The Modal (Add New Board) -->
 <div id="addNewModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>

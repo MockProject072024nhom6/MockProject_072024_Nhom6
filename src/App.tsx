@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import GuardLayout from "./Layouts/GuardLayout/GuardLayout"
-import { guardMenu, guardPaths } from "./Arrays/Arrays"
+import { guardMenu, guardPaths, userList } from "./Arrays/Arrays"
 import { Bookmark, LayoutDashboard, MessageSquareText, SquareChevronDown } from "lucide-react"
 import WorkingScheduleRoute from "./Routes/WorkingScheduleRoute"
 import DashboardRoute from "./Routes/DashboardRoute"
@@ -23,6 +23,10 @@ import PriceStaff from "./Pages/PriceStaff"
 import DashboardPage from "./Pages/DashboardPage/DashboardPage"
 import MyComponent from "./Components/Message/Message"
 import NavbarStaff from "./ComponentsStaff/NavbarStaff"
+import ReportsOverview from "./Components/Dashboard/ReportOverview"
+import NotificationContainer from "./Components/Notification/Notification"
+import ChangePrice from "./Pages/ChangePrice"
+import DeletePrice from "./Pages/DeletePrice"
 
 function App() {
   return (
@@ -53,21 +57,25 @@ function App() {
           {AuthenticationRoute.map((route, index) => (
             <Route key={index} path={route.path} element={<route.element />} />
           ))}
-          <Route path='/contact' element={<ContactUsPage />} />
+          <Route path='/price-service-list' element={<PriceServicesPage />} />
           <Route path='/about-us' element={<AboutXPressGuardsPage />} />
           <Route path='/training' element={<BodyguardTrainingPage />} />
-          <Route path='/price-service-list' element={<PriceServicesPage />} />
           <Route path='/profile' element={<PersonalInformationPage />} />
+          <Route path='/contact' element={<ContactUsPage />} />
+          <Route path='/service-management' element={<ServiceManagementPage />} />
+          <Route path='/confirm-contract' element={<ContractDetails />} />
           {/* Staff */}
           <Route path='/staff'>
-            <Route path='maintain-price' element={<MaintainPrice />} />
+            <Route path='maintain-price' element={<PriceStaff />} />
             <Route path='add-price' element={<AddPrice />} />
-            <Route path='price-staff' element={<PriceStaff />} />
-            <Route path='dashboard' element={<DashboardPage />} />
-            <Route path='contract' element={<ServiceManagementPage />} />
+            <Route path='edit-price' element={<ChangePrice />} />
+            <Route path='delete-price' element={<DeletePrice />} />
+            <Route path='maintain-contract' element={<ContractStaff data={userList} />} />
           </Route>
           <Route path='/manager'>
-            <Route path='preview-contract' element={<ContractDetails />} />
+            <Route path='overview' element={<ReportsOverview />} />
+            <Route path='notification' element={<NotificationContainer />} />
+            <Route path='message' element={<MyComponent />} />
           </Route>
         </Routes>
       </BrowserRouter>

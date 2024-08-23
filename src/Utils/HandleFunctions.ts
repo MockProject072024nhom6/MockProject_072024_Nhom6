@@ -42,5 +42,4 @@ export const handleFileExplorerOpen = () => {
 export const handleSaveInfo = (profileData: I_Props_Profile, billingAddressData: I_BillingAddress) => {
   localStorage.setItem("SAVE_PROFILE_INFO", JSON.stringify(profileData))
   localStorage.setItem("SAVE_BILLING_INFO", JSON.stringify(billingAddressData))
-  console.log("🚀 ~ handleSaveInfo ~ profileData:", profileData)
 }

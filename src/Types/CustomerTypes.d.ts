@@ -1,3 +1,5 @@
+import { boolean } from "yup"
+
 interface I_Props_CustomInput {
   label: string
   type: string
@@ -27,7 +29,9 @@ interface I_Props_CustomerLayoutContent {
 
 interface I_Props_LinkButton {
   text: string
-  large: boolean
+  large?: boolean
+  transparent?: boolean
+  fullBg?: boolean
 }
 
 interface I_Props_ServiceTypeCard {
@@ -46,4 +50,29 @@ interface I_Props_TestimonialCard {
   }
   index: number
   currentCard: number
+}
+
+interface I_Props_Highlight {
+  img: string
+  title: string
+  text: string
+}
+
+interface I_Props_Offer {
+  img1: string
+  img2: string
+  type: string
+  qnA: I_Props_QnA[]
+}
+
+interface I_Props_QnA {
+  question: string
+  answer: string
+}
+
+interface I_Props_QnAComponent {
+  data: I_Props_QnA
+  index: number
+  toggleQuestion: boolean[]
+  handleToggle: Function
 }

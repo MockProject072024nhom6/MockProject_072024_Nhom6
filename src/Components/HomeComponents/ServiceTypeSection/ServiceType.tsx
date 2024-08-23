@@ -3,15 +3,9 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 import React, { useState } from "react"
 import Card from "./Card"
 import { useMediaQuery } from "react-responsive"
+import { serviceType } from "@/Arrays/CustomerArrays"
 
 const ServiceType = () => {
-  const serviceType = [
-    { name: "Personal Protection", srcImg: "images/service-type.png" },
-    { name: "Enterprise Security", srcImg: "images/service-type.png" },
-    { name: "Event Security", srcImg: "images/service-type.png" },
-    { name: "Aviation Security", srcImg: "images/service-type.png" },
-    { name: "Transport Security", srcImg: "images/service-type.png" }
-  ]
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" })
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -42,7 +36,7 @@ const ServiceType = () => {
       </p>
       <div style={{ transform: `translateX(-${currentIndex * 20.5}%)` }} className={serviceTypeStyle.cardContainer}>
         {serviceType.map(s => (
-          <Card serviceType={s} />
+          <Card key={s.name} serviceType={s} />
         ))}
       </div>
       <div className={serviceTypeStyle.buttons}>
@@ -50,11 +44,9 @@ const ServiceType = () => {
         <ArrowRight size='50px' onClick={handleNext} />
       </div>
       <div>
-        {/* Có thể tái sử dụng, tạo file style.ts để chứa */}
-        <div className='absolute bg-white w-1/5 lg:top-0 top-1/4 bottom-0 left-0'></div>
-        <div className='absolute bg-white w-1/5 lg:top-0 top-1/4 bottom-0 right-0'></div>
+        <div className={`${serviceTypeStyle.layer}  left-0`}></div>
+        <div className={`${serviceTypeStyle.layer}  right-0`}></div>
       </div>
-      {/* <div className='w-full border-t border-gray-300 bottom-8'></div> */}
     </section>
   )
 }

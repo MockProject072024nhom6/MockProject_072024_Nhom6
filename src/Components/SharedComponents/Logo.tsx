@@ -1,4 +1,4 @@
-import { getImageUrl } from "../../Unltis/unltis"
+import { getImageUrl } from "../../Utils/unltis"
 
 const Logo = () => {
   return (

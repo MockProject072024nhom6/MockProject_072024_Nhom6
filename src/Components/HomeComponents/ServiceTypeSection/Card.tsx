@@ -1,5 +1,5 @@
 import { serviceTypeStyle } from "@/Styles/HomeStyle"
-import { getImageUrl } from "@/Unltis/unltis"
+import { getImageUrl } from "@/Utils/unltis"
 import { ArrowRight } from "lucide-react"
 import React from "react"
 

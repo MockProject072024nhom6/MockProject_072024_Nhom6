@@ -1,6 +1,6 @@
-import { getImageUrl } from "@/Unltis/unltis"
+import { getImageUrl } from "@/Utils/unltis.ts"
 import React from "react"
-import LinkButton from "./LinkButton.tsx"
+import LinkButton from "../../SharedComponents/LinkButton.tsx"
 import { heroStyle } from "@/Styles/HomeStyle"
 
 const Hero = () => {

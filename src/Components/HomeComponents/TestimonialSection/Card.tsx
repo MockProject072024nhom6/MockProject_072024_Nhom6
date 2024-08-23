@@ -1,4 +1,4 @@
-import { getImageUrl } from "@/Unltis/unltis"
+import { getImageUrl } from "@/Utils/unltis"
 import React from "react"
 
 const Card = ({ testimonial, index, currentCard }: I_Props_TestimonialCard) => {

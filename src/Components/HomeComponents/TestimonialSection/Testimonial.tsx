@@ -1,4 +1,4 @@
-import { getImageUrl } from "@/Unltis/unltis"
+import { getImageUrl } from "@/Utils/unltis"
 import React, { useState } from "react"
 import Card from "./Card"
 import { Circle } from "lucide-react"
@@ -47,6 +47,7 @@ const Testimonial = () => {
       <div className='absolute flex w-full bottom-[5%] justify-center lg:right-[4%]'>
         {data.map((d, i) => (
           <Circle
+            key={i}
             color='#1E56F8'
             className={`${currentCard === i ? "bg-[#1E56F8] rounded-full" : ""}`}
             onClick={() => handleClick(i)}

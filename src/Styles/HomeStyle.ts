@@ -5,28 +5,29 @@ export const heroStyle = {
   heading2: "lg:text-[48px] text-[22px] text-white font-semibold",
   p: "lg:text-[16px] text-xs text-white lg:mx-auto lg:w-4/12 w-9/12 lg:text-left mb-24 pt-10 leading-5",
   linkButton:
-    "border-2 border-white inline-flex font-semibold justify-between lg:p-1 lg:pl-3 p-[4px] lg:text-[16px] text-[11px] pl-3 rounded-full items-center text-white gap-2 lg:mt-1"
+    "uppercase border-2 border-white inline-flex font-semibold justify-between lg:p-1 lg:pl-3 p-[0.5%] lg:text-[16px] text-[9px] pl-[2%] rounded-full items-center text-white gap-2 lg:mt-1"
 }
 
 export const serviceTypeStyle = {
   section:
-    "relative bg-white flex flex-col w-screen overflow-hidden lg:h-screen h-[600px] items-center font-headings border-b-2 border-header",
+    "relative bg-white flex flex-col w-screen overflow-hidden lg:h-screen h-[70vh] items-center font-headings border-b-2 border-header",
   open: "text-[16px] text-header font-bold lg:mb-5 mb-1 mt-9",
-  heading: "font-semibold lg:text-[64px] text-[31px] mb-2",
+  heading: "text-center font-semibold lg:text-[64px] text-[31px] mb-2",
   p: "text-xs lg:text-[16px] font-semibold mb-10 lg:w-5/12 w-5/6 text-center z-20",
-  buttons: "absolute mx-10 flex justify-between left-0 right-0 lg:left-3 lg:right-3 lg:top-1/2 bottom-[30%] z-20",
+  buttons: "absolute lg:mx-10 flex justify-between left-0 right-0 lg:left-3 lg:right-3 lg:top-1/2 bottom-[30%] z-20",
   cardContainer:
-    "absolute lg:w-screen lg:left-[20.5%] left-[25%] lg:top-60 top-60 flex gap-6 lg:gap-3 justify-center overflow-x-hidden duration-300",
-  card: "lg:w-1/2 w-[200px] h-full relative border border-[#1EDEF7] rounded-2xl",
+    "absolute lg:w-screen lg:left-[20.64%] left-[25%] lg:top-[36%] bottom-[10%] flex gap-6 lg:gap-3 justify-center overflow-x-hidden duration-300",
+  card: "lg:w-1/2 w-[55vw] max-w-[250px]  relative border border-[#1EDEF7] rounded-2xl",
   cardImg: "rounded-2xl ",
-  cardP: "absolute top-2 left-4 lg:text-[30px] text-[17px] text-white font-bold",
+  cardP: "absolute top-2 left-4 w-1/2 lg:text-[30px] text-[17px] text-white font-bold",
   cardButton:
-    "flex items-center text-[9px] lg:text-sm gap-2 lg:gap-4 rounded-full  absolute bottom-4 right-4 bg-header font-bold text-white"
+    "flex items-center text-[9px] lg:text-sm gap-2 lg:gap-4 rounded-full absolute bottom-4 right-4 bg-header font-bold text-white",
+  layer: "absolute bg-white w-[19.6%] lg:top-0 top-1/4 bottom-0"
 }
 
 export const benefitStyle = {
   section: "px-2 flex flex-col items-center font-headings font-semibold pb-[4%] border-b-2 border-black lg:h-[80vh]",
-  heading: "lg:text-[48px] text-[20px] mt-[2%] lg:mb-[4%]",
+  heading: "lg:text-[48px] text-[20px] mt-[2%] lg:mb-[4%] text-center",
   container:
     "lg:relative lg:flex-row lg:text-black lg:flex-row lg:justify-between text-black/50 flex-col flex items-center pl-2 lg:px-14 lg:items-start",
   text: "text-xs lg:text-sm lg:w-2/6 py-4 px-4",

@@ -1,4 +1,7 @@
 // I_props: data type using for props.
+
+import { FormikErrors } from "formik"
+
 // Layout
 type LucideIcon = React.FC<LucideProps>
 
@@ -25,6 +28,8 @@ export interface I_Props_Forms {
   flex?: string
   disabled?: boolean
 }
+
+export interface I_List_FromCheckError {}
 
 export interface I_Props_Select {
   name?: string
@@ -83,6 +88,8 @@ export interface I_Props_Button {
   className?: string
   type?: "link" | "default" | "primary" | "dashed" | "text" | undefined
   onClick?: () => void
+  isValid?: boolean
+  dirty?: boolean
 }
 
 export interface I_Props_Input {
@@ -117,10 +124,34 @@ export interface I_Props_InfoConfirm {
   value?: string
 }
 
-// Components
+export interface I_Props_ErrorMessage {
+  error?: string
+}
 
+// Components
 export interface I_Props_Profile {
   [key: string]: string
+}
+
+export interface I_Props_FormProfile {
+  handleChange: (event: React.ChangeEvent<any>) => void
+  values: I_Props_Profile
+  setFieldValue?: (field: string, value: any, shouldValidate?: boolean) => void
+  handleSubmit: (e?: React.FormEvent<HTMLFormElement>) => void
+  errors: FormikErrors<I_Props_Profile>
+  isValid: boolean
+  dirty?: boolean
+  onPrevious?: () => void
+}
+
+export interface I_Props_FormBillingAddress {
+  handleChange: (event: React.ChangeEvent<any>) => void
+  values: I_BillingAddress
+  handleSubmit: (e?: React.FormEvent<HTMLFormElement>) => void
+  errors: FormikErrors<I_BillingAddress>
+  isValid?: boolean
+  dirty?: boolean
+  onPrevious?: () => void
 }
 
 export interface I_BillingAddress {
@@ -156,6 +187,7 @@ export interface I_Props_Location {
   cityValue?: string
   stateValue?: string
   handleChange?: (event: React.ChangeEvent<any>) => void
+  errors: FormikErrors<I_BillingAddress>
 }
 
 export interface I_Props_AddressLine1 {

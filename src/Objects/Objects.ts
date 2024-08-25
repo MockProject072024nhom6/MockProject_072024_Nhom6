@@ -26,7 +26,6 @@ export const profileObject: I_Props_Profile = {
   department: "",
   accountType: ""
 }
-
 export const billingAddressObjects: I_BillingAddress = {
   location: "",
   city: "",
@@ -36,7 +35,6 @@ export const billingAddressObjects: I_BillingAddress = {
   zipCode: "",
   experience: ""
 }
-
 export const missionDescription = `Ignition Group Event Company
 email: amanda@site.com
 

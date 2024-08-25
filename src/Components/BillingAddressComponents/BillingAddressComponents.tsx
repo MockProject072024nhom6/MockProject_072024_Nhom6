@@ -7,12 +7,7 @@ import AddressLine1Components from "./AddressLine1Components"
 
 export default function BillingAddressComponents() {
   return (
-    <Formik
-      initialValues={billingAddressObjects}
-      onSubmit={values => {
-        console.log("🚀 ~ values:", values)
-      }}
-    >
+    <Formik initialValues={billingAddressObjects} onSubmit={values => {}}>
       {({ handleChange, values }) => (
         <Form>
           <Location

@@ -3,13 +3,15 @@ import Select from "../../SharedComponents/Select"
 import Forms from "../../SharedComponents/Forms"
 import { guardStyle } from "../../../Styles/GuardStyle"
 import { I_Props_Location } from "../../../Types/GuardTypes"
+import ErrorMessage from "../../SharedComponents/ErrorMessage"
 
 export default function LocationComponents({
   list,
   locationValue,
   cityValue,
   stateValue,
-  handleChange
+  handleChange,
+  errors
 }: I_Props_Location) {
   return (
     <>
@@ -24,8 +26,11 @@ export default function LocationComponents({
           handleChange={handleChange}
         />
       </div>
+      <ErrorMessage error={errors.location} />
       <Forms label='City' name='city' value={cityValue} handleChange={handleChange} flex='flex' />
+      <ErrorMessage error={errors.city} />
       <Forms label='State' name='state' value={stateValue} handleChange={handleChange} flex='flex' />
+      <ErrorMessage error={errors.state} />
     </>
   )
 }

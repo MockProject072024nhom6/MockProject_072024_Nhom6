@@ -1,3 +1,5 @@
+import PhoneComponents from "../Components/DashboardComponents/ProfileComponents/PhoneComponents"
+import Forms from "../Components/SharedComponents/Forms"
 import { DayOffColumns, WorkingScheduleColumns } from "../Types/GuardTypes"
 
 export const guardMenu = ["Dashboard", "Day-off", "Working Schedule", "Training course"]
@@ -245,6 +247,15 @@ export const countryList = [
 ]
 
 export const addressLine1List = ["individual", "enterprise"]
+
+export const formProfileFields = [
+  { label: "full name", name: "fullName", component: Forms },
+  { label: "email", name: "email", component: Forms },
+  { label: "phone", name: "phone", component: PhoneComponents },
+  { label: "organization", name: "organization", component: Forms },
+  { label: "department", name: "department", component: Forms },
+  { label: "account type", name: "accountType", component: Forms }
+]
 
 export const userList = [
   {

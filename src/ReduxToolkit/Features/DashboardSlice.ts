@@ -4,10 +4,11 @@ import { billingAddressObjects, profileObject } from "../../Objects/Objects"
 
 const storedAvatar = localStorage.getItem("UPLOAD_AVATAR")
 const savedProfileInfo = localStorage.getItem("SAVE_PROFILE_INFO")
+const savedBillingInfo = localStorage.getItem("SAVE_BILLING_INFO")
 const initialState = {
   avatarImage: storedAvatar ? JSON.parse(storedAvatar) : userImage,
   profileData: savedProfileInfo ? JSON.parse(savedProfileInfo) : profileObject,
-  billingAddressData: billingAddressObjects
+  billingAddressData: savedBillingInfo ? JSON.parse(savedBillingInfo) : billingAddressObjects
 }
 
 const dashboardSlice = createSlice({

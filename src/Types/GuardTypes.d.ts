@@ -122,6 +122,7 @@ export interface I_Props_Table {
 export interface I_Props_InfoConfirm {
   label?: string
   value?: string
+  disabled?: boolean
 }
 
 export interface I_Props_ErrorMessage {

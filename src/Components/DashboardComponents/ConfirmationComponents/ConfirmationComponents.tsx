@@ -23,7 +23,7 @@ export default function ConfirmationComponents({ onEdit }: I_Props_ConfirmationC
           rounded='rounded-full'
         />
         {Object.keys(combinedData).map(key => (
-          <InfoConfirm key={key} label={key} value={combinedData[key]} />
+          <InfoConfirm key={key} label={key} value={combinedData[key]} disabled={true} />
         ))}
       </div>
       <Button
@@ -32,8 +32,17 @@ export default function ConfirmationComponents({ onEdit }: I_Props_ConfirmationC
         onClick={() => {
           handleSaveInfo(profileData, billingAddressData)
         }}
+        isValid={true}
+        dirty={true}
       />
-      <Button name='Edit' className='absolute right-0 -bottom-14' type='primary' onClick={onEdit} />
+      <Button
+        name='Edit'
+        className='absolute right-0 -bottom-14'
+        type='primary'
+        onClick={onEdit}
+        isValid={true}
+        dirty={true}
+      />
     </section>
   )
 }

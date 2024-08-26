@@ -1,26 +1,27 @@
 import { guardStyle } from "../../../Styles/GuardStyle"
 import { Form, Formik } from "formik"
-import { profileObject } from "../../../Objects/Objects"
 import { handleFormData } from "../../../Utils/HandleFunctions"
-import { useAppDispatch } from "../../../ReduxToolkit/Store"
+import { useAppDispatch, useAppSelector } from "../../../ReduxToolkit/Store"
 import { I_Props_ProfileComponents } from "../../../Types/GuardTypes"
 import { setProfileData } from "../../../ReduxToolkit/Features/DashboardSlice"
 import { profileSchema } from "../../../schemas/guardSchema"
 import FormProfile from "./FormProfile"
 
 export default function ProfileComponents({ onNext }: I_Props_ProfileComponents): JSX.Element {
+  const { profileData } = useAppSelector(state => state.DashboardSlice)
   const dispatch = useAppDispatch()
   return (
     <Formik
-      initialValues={profileObject}
+      initialValues={profileData}
       validationSchema={profileSchema}
       onSubmit={values => {
         handleFormData(values.avatar)
         onNext()
         dispatch(setProfileData(values))
+        localStorage.setItem("SAVE_PROFILE_INFO", JSON.stringify(values))
       }}
     >
-      {({ handleChange, values, setFieldValue, handleSubmit, errors, isValid, dirty }) => (
+      {({ handleChange, values, setFieldValue, handleSubmit, errors, isValid }) => (
         <Form className={`${guardStyle.form} relative`}>
           <FormProfile
             handleChange={handleChange}
@@ -29,7 +30,7 @@ export default function ProfileComponents({ onNext }: I_Props_ProfileComponents)
             handleSubmit={handleSubmit}
             errors={errors}
             isValid={isValid}
-            dirty={dirty}
+            dirty={true}
           />
         </Form>
       )}

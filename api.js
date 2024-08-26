@@ -93,6 +93,23 @@ router.route('/training/:training_id').delete((request, response) => {
   });
 });
 
+router.route('/training/:training_id').put((request, response) => {
+    let training = { ...request.body };
+    training.training_id = request.params.training_id;
+
+    dboperations.updateTraining(training).then((result) => {
+        if (result > 0) {  // Kiểm tra nếu có bản ghi bị cập nhật
+            response.status(200).send('Training updated successfully');
+        } else {
+            response.status(404).send('Training not found');
+        }
+    }).catch(error => {
+        console.error(error);
+        response.status(500).send('Error updating training');
+    });
+});
+
+
 
 var  port = process.env.PORT || 8090;
 app.listen(port);

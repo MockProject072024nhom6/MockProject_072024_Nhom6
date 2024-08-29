@@ -1,0 +1,7 @@
+{
+  "css.customData": [".vscode/tailwind.json"],
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.autoImports": true
+}

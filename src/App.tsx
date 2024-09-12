@@ -13,6 +13,9 @@ import AddPrice from "./Pages/AddPrice.tsx"
 import ChangePrice from "./Pages/ChangePrice.tsx"
 import DeletePrice from "./Pages/DeletePrice.tsx"
 import ContractStaff from "./Pages/ContractStaff.tsx"
+import EditContract from "./Pages/EditContract.tsx"
+import CreatContract from "./Pages/CreatContract.tsx"
+import Equipment from "./Pages/Equipment.tsx"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +38,46 @@ function App() {
   };
   
 
+  // dấd
+  const dataEquiment = [
+    {
+      id: "EQ001",
+      name: "Excavator",
+      price: "$15,000",
+      image: "https://example.com/images/excavator.jpg",
+      lastUpdated: "2023-08-10",
+      quantity: "5",
+      status: "available", // available, underMaintenance, outOfStock
+      description: "Heavy-duty excavator for construction work.",
+      creator: "John Doe",
+    },
+    {
+      id: "EQ002",
+      name: "Bulldozer",
+      price: "$20,000",
+      image: "https://example.com/images/bulldozer.jpg",
+      lastUpdated: "2023-08-11",
+      quantity: "2",
+      status: "underMaintenance",
+      description: "Bulldozer suitable for heavy soil and land grading.",
+      creator: "Jane Smith",
+    },
+    {
+      id: "EQ003",
+      name: "Forklift",
+      price: "$8,000",
+      image: "https://example.com/images/forklift.jpg",
+      lastUpdated: "2023-08-12",
+      quantity: "0",
+      status: "outOfStock",
+      description: "Compact forklift ideal for warehouse operations.",
+      creator: "Robert Brown",
+    },
+    // Add more items if needed
+  ];
+  
+  
+
   return (
     <div className="flex flex-col h-screen">
       {/* Header */}
@@ -54,7 +97,7 @@ function App() {
 
         {/* Main Content */}
         <div className="flex-1 p-4">
-        <ContractStaff  data={data}/>
+          <Equipment data ={dataEquiment}/>
         </div>
       </div>
     </div>
@@ -62,6 +105,10 @@ function App() {
 }
 
 export default App
+
+{/* <div className="flex-1 p-4">
+        <ContractStaff  data={data}/>
+        </div> */}
 
 
 

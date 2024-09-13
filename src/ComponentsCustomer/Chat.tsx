@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Button, Popover } from "antd"
 import { getImageUrl } from "@/Utils/unltis"
 import { ClickContent } from "@/Components/ChatComponent/ClickContent"
-import { ChevronDown } from "lucide-react"
 
 const Chat: React.FC = () => {
   const [clicked, setClicked] = useState(false)

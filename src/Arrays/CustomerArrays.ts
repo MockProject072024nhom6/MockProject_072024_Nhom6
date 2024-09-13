@@ -152,3 +152,32 @@ export const QnA: I_Props_QnA[] = [
       "XPressGuards conducts thorough background checks, continuous performance evaluations, and ongoing training to maintain the safety, reliability, and professionalism of our security guards."
   }
 ]
+
+export const feedbackColor = ["#254024", "#50A358", "#D05252", "#00CCDD"]
+
+export const feedbackInfo = [
+  {
+    star: 5,
+    details:
+      "The service provided by your bodyguards was exceptional. They were professional, courteous, and ensured our safety throughout the event. I am very satisfied with the service and will definitely recommend your company to others.",
+    avatar: "feedback-cutomeravarta.png"
+  },
+  {
+    star: 5,
+    details:
+      "The service provided by your bodyguards was exceptional. They were professional, courteous, and ensured our safety throughout the event. I am very satisfied with the service and will definitely recommend your company to others.",
+    avatar: "feedback-cutomeravarta.png"
+  },
+  {
+    star: 5,
+    details:
+      "The service provided by your bodyguards was exceptional. They were professional, courteous, and ensured our safety throughout the event. I am very satisfied with the service and will definitely recommend your company to others.",
+    avatar: "feedback-cutomeravarta.png"
+  },
+  {
+    star: 5,
+    details:
+      "The service provided by your bodyguards was exceptional. They were professional, courteous, and ensured our safety throughout the event. I am very satisfied with the service and will definitely recommend your company to others.",
+    avatar: "feedback-cutomeravarta.png"
+  }
+]

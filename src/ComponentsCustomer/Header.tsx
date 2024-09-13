@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import reactLogo from "./assets/react.svg"
 import viteLogo from "/vite.svg"
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
@@ -17,6 +17,8 @@ import {
 } from "../Style/tailwindStyles"
 import "../index.css"
 import { NavLink } from "react-router-dom"
+import Logo from "@/Components/SharedComponents/Logo"
+import { getImageUrl } from "@/Utils/unltis"
 
 function Header() {
   return (
@@ -26,21 +28,13 @@ function Header() {
         <div className={contactInfoContainer}>
           <span>
             <a href='tel:+1234567890' className={contactLink}>
-              +123 456 7890
+              +123 456 7890 |{" "}
             </a>
-          </span>
-          <span>
             <a href='mailto:example@example.com' className={contactLink}>
               example@example.com
             </a>
           </span>
         </div>
-        <nav className='flex gap-5'>
-          <NavLink to='/price-service-list'>Services</NavLink>
-          <NavLink to='/about-us'>About us</NavLink>
-          <NavLink to='/training'>Training</NavLink>
-          <NavLink to='/contact'>Contact</NavLink>
-        </nav>
         {/* Phần chứa các icon mạng xã hội */}
         <div className={socialIconsContainer}>
           <a href='#' className={socialIcon}>
@@ -71,6 +65,17 @@ function Header() {
           </div>
         </div>
       </div>
+      <nav className='flex items-center justify-between px-5 h-[70px] text-lg bg-white border-b border-gray-200 shadow-md py-[50px]'>
+        <img src={getImageUrl("logo1.png")} alt='logo' className='w-[250px]' />
+        <div className='flex gap-6 uppercase font-bold '>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/servicetype'>Service</NavLink>
+          <NavLink to='/price-service-list'>Price</NavLink>
+          <NavLink to='/about-us'>About us</NavLink>
+          <NavLink to='/training'>Training</NavLink>
+          <NavLink to='/contact'>Contact</NavLink>
+        </div>
+      </nav>
     </header>
   )
 }

@@ -1,0 +1,24 @@
+.slick-dots {
+  z-index: 100;
+}
+.slick-prev {
+  left: 5%;
+  z-index: 100;
+  opacity: 1;
+}
+.slick-next {
+  right: 5%;
+  z-index: 100;
+  opacity: 1;
+}
+.slick-track {
+  display: flex;
+  gap: 10px;
+}
+.slick-center > div > div {
+  transform: translateY(-1rem);
+}
+.slick-list {
+  margin-top: 2%;
+  overflow: visible; /* Đảm bảo phần tử không bị cắt khi di chuyển lên */
+}

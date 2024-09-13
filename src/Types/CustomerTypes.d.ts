@@ -76,3 +76,17 @@ interface I_Props_QnAComponent {
   toggleQuestion: boolean[]
   handleToggle: Function
 }
+
+interface I_Props_FeedbackCustomer {
+  star: number
+  details: string
+  avatar: string
+}
+interface I_Props_FeedbackCardComponent {
+  bgColor: string
+  info: I_Props_FeedbackCustomer
+}
+
+interface I_Props_ClickContent {
+  onClick: MouseEventHandler
+}

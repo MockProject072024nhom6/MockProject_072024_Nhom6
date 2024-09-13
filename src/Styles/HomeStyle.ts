@@ -16,13 +16,13 @@ export const serviceTypeStyle = {
   p: "text-xs lg:text-[16px] font-semibold mb-10 lg:w-5/12 w-5/6 text-center z-20",
   buttons: "absolute lg:mx-10 flex justify-between left-0 right-0 lg:left-3 lg:right-3 lg:top-1/2 bottom-[30%] z-20",
   cardContainer:
-    "absolute lg:w-screen lg:left-[20.64%] left-[25%] lg:top-[36%] bottom-[10%] flex gap-6 lg:gap-3 justify-center overflow-x-hidden duration-300",
+    "absolute lg:w-screen lg:left-[18.64%] left-[25%] lg:top-[36%] bottom-[10%] flex gap-6 lg:gap-3 justify-center overflow-x-hidden duration-300",
   card: "lg:w-1/2 w-[55vw] max-w-[250px]  relative border border-[#1EDEF7] rounded-2xl",
-  cardImg: "rounded-2xl ",
+  cardImg: "rounded-2xl",
   cardP: "absolute top-2 left-4 w-1/2 lg:text-[30px] text-[17px] text-white font-bold",
   cardButton:
     "flex items-center text-[9px] lg:text-sm gap-2 lg:gap-4 rounded-full absolute bottom-4 right-4 bg-header font-bold text-white",
-  layer: "absolute bg-white w-[19.6%] lg:top-0 top-1/4 bottom-0"
+  layer: "absolute bg-white w-[19.6%] lg:top-0 top-1/4 lg:w-[23%] bottom-0"
 }
 
 export const benefitStyle = {

@@ -4,11 +4,18 @@ import React, { useState } from "react"
 import Card from "./Card"
 import { useMediaQuery } from "react-responsive"
 import { serviceType } from "@/Arrays/CustomerArrays"
+import Slider from "react-slick"
 
 const ServiceType = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" })
   const [currentIndex, setCurrentIndex] = useState(0)
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  }
   const handleNext = () => {
     if (isMobile) {
       if (currentIndex + 1 < serviceType.length) {
@@ -34,7 +41,14 @@ const ServiceType = () => {
         XPressGuards is owned by former law enforcement officers, and we’re one of the top security companies in the
         United States. With over 600 offices nationally, we offer a wide variety of security services.
       </p>
-      <div style={{ transform: `translateX(-${currentIndex * 20.5}%)` }} className={serviceTypeStyle.cardContainer}>
+      <div className='slider-container'>
+        <Slider {...settings}>
+          {serviceType.map(s => (
+            <Card key={s.name} serviceType={s} />
+          ))}
+        </Slider>
+      </div>
+      {/* <div style={{ transform: `translateX(-${currentIndex * 20.5}%)` }} className={serviceTypeStyle.cardContainer}>
         {serviceType.map(s => (
           <Card key={s.name} serviceType={s} />
         ))}
@@ -46,7 +60,7 @@ const ServiceType = () => {
       <div>
         <div className={`${serviceTypeStyle.layer}  left-0`}></div>
         <div className={`${serviceTypeStyle.layer}  right-0`}></div>
-      </div>
+      </div> */}
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import { serviceTypeStyle } from "@/Styles/HomeStyle"
+import { I_Props_ServiceTypeCard } from "@/Types/CustomerTypes"
 import { getImageUrl } from "@/Utils/unltis"
 import { ArrowRight } from "lucide-react"
 import React from "react"

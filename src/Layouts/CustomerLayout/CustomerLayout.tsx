@@ -6,7 +6,7 @@ import Footer from "../../ComponentsCustomer/Footer"
 
 export default function App(): JSX.Element {
   return (
-    <Layout className=''>
+    <Layout>
       <CustomerLayoutContent Layout={Layout} Header={Header} Content={Content} Footer={Footer} />
     </Layout>
   )

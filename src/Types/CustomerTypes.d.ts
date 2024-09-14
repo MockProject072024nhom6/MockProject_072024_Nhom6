@@ -20,6 +20,7 @@ interface I_Props_SubmitButton {
 
 interface I_Props_CustomerLayoutContent {
   Layout: React.Element
+  HeaderAbove: React.Element
   Header: React.Element
   Content: React.Element
   Footer: React.Element

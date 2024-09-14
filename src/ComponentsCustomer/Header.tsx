@@ -22,54 +22,12 @@ function Header() {
   return (
     <header className={headerMain}>
       <div className={headerContainer}>
-        {/* Phần chứa số điện thoại và email */}
-        <div className={contactInfoContainer}>
-          <span>
-            <a href='tel:+1234567890' className={contactLink}>
-              +123 456 7890
-            </a>
-          </span>
-          <span>
-            <a href='mailto:example@example.com' className={contactLink}>
-              example@example.com
-            </a>
-          </span>
-        </div>
         <nav className='flex gap-5'>
           <NavLink to='/price-service-list'>Services</NavLink>
           <NavLink to='/about-us'>About us</NavLink>
           <NavLink to='/training'>Training</NavLink>
           <NavLink to='/contact'>Contact</NavLink>
         </nav>
-        {/* Phần chứa các icon mạng xã hội */}
-        <div className={socialIconsContainer}>
-          <a href='#' className={socialIcon}>
-            <Facebook />
-          </a>
-          <a href='#' className={socialIcon}>
-            <Instagram />
-          </a>
-          <a href='#' className={socialIcon}>
-            <Twitter />
-          </a>
-          <a href='https://www.linkedin.com' className='text-blue-500 hover:text-blue-700'>
-            <Linkedin />
-          </a>
-        </div>
-
-        {/* Phần chứa Login và Signup */}
-        <div className={authLinksContainer}>
-          <div className={signupStyle}>
-            <NavLink to='/signup' className={authLink}>
-              Signup
-            </NavLink>
-          </div>
-          <div className={loginStyle}>
-            <NavLink to='/login' className={`${authLink} ${loginText}`}>
-              Login
-            </NavLink>
-          </div>
-        </div>
       </div>
     </header>
   )

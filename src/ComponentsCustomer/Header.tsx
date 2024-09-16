@@ -1,31 +1,17 @@
-import { useState } from "react"
-import reactLogo from "./assets/react.svg"
-import viteLogo from "/vite.svg"
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
-import {
-  headerContainer,
-  contactInfoContainer,
-  contactLink,
-  socialIconsContainer,
-  socialIcon,
-  authLinksContainer,
-  authLink,
-  headerMain,
-  loginStyle,
-  loginText,
-  signupStyle
-} from "../Style/tailwindStyles"
+import { headerContainer, headerMain } from "../Style/tailwindStyles"
 import "../index.css"
 import { NavLink } from "react-router-dom"
+import logo from "@/Assets/logo1.png"
 
 function Header() {
   return (
     <header className={headerMain}>
       <div className={headerContainer}>
-        <nav className='flex gap-5'>
+        <img src={logo} alt='logo-company' width={150} height={150} />
+        <nav className='flex gap-5 uppercase'>
+          <NavLink to='/'>Home</NavLink>
           <NavLink to='/price-service-list'>Services</NavLink>
           <NavLink to='/about-us'>About us</NavLink>
-          <NavLink to='/training'>Training</NavLink>
           <NavLink to='/contact'>Contact</NavLink>
         </nav>
       </div>

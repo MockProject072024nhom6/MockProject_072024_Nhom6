@@ -5,7 +5,7 @@ export const heroStyle = {
   heading2: "lg:text-[48px] text-[22px] text-white font-semibold",
   p: "lg:text-[16px] text-xs text-white lg:mx-auto lg:w-4/12 w-9/12 lg:text-left mb-24 pt-10 leading-5",
   linkButton:
-    "border-2 border-white inline-flex font-semibold justify-between lg:p-1 lg:pl-3 p-[4px] lg:text-[16px] text-[11px] pl-3 rounded-full items-center text-white gap-2 lg:mt-1"
+    "border-2 border-white inline-flex font-semibold justify-between lg:p-1 lg:pl-3 p-[4px] lg:text-[16px] text-[11px] pl-3 rounded-full items-center text-white gap-2 lg:mt-1 cursor-pointer"
 }
 
 export const serviceTypeStyle = {

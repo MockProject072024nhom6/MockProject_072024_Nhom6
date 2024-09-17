@@ -1,3 +1,6 @@
+import { ReactElement } from "react"
+import { To } from "react-router-dom"
+
 interface I_Props_CustomInput {
   label: string
   type: string
@@ -47,4 +50,11 @@ interface I_Props_TestimonialCard {
   }
   index: number
   currentCard: number
+}
+
+interface I_Props_Text {
+  text: string
+  link: To
+  large?: boolean
+  children?: ReactElement
 }

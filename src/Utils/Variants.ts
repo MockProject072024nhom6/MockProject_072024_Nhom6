@@ -21,3 +21,12 @@ export const hoverVariants = {
     }
   }
 }
+
+export const scaleVariants = {
+  rest: { scale: 1, transition: { duration: 0.3 } },
+  hover: { scale: 1.1, transition: { duration: 0.3 } }
+}
+
+export const changeColorVariants = {
+  hover: { backgroundColor: "white", transition: { duration: 0.3 } }
+}

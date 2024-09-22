@@ -1,13 +1,13 @@
 const config = {
-    user: 'lam',
-    password: 'lam',
-    server: `LAPTOP-5AKEN6P5\\SQLEXPRESS`,
-    database: 'DB_MockProject_072024',
-    options: {
-        trustServerCertificate: true,
-        enableArithAort: true,
-        instanceName: 'SQLEXPRESS'
-    },
-    port: 55892
-}
-module.exports = config
+  user: "sa",
+  password: "phuockhuat01022001",
+  server: `DESKTOP-5FJC9JR`,
+  database: "MockProject_072024_Group6",
+  options: {
+    trustServerCertificate: true,
+    enableArithAort: true,
+    instanceName: "MSSQLSERVER",
+  },
+  port: 1433,
+};
+module.exports = config;

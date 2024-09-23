@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Data Table Example</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Search Box -->
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Search users">
+        </div>
+
+        <!-- Data Table -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"><input type="checkbox"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Portfolio</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% customers.forEach(function(customer)  { %>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td><%= customer.first_name +' ' + customer.last_name %> <br> <small><%= customer.email  %></small></td>
+                        <td>
+                            <% if (customer.staff_id != null) { %>
+                                <p><%= customer.staff_id %></p>
+                            <% } else if(customer.guard_id != null) {%>
+                                <p><%= customer.staff_id %></p>
+                            <% } else if(customer.supervisor_id != null) {%>
+                                <p><%= customer.supervisor_id %></p>
+                            <% } else if(customer.admin_id != null) {%>
+                                <p><%= customer.admin_id %></p>
+                            <% } else if(customer.customer_id != null) {%>
+                                <p><%= customer.customer_id %></p>
+                            <% } %>
+                        </td>
+                    <td><%= customer.country %></td>
+                    <td><span class="text-success"><%= customer.account_status%></span></td>
+                    <td>72%</td>
+                    <td><%= customer.account_role%></td>
+                    <td><button class="btn btn-secondary btn-sm edit-button"  data-toggle="modal" data-target="#editUserModal" data-account-id ="<%= customer.account_id%>" >Edit</button></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editUserModalLabel">EDIT USER</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <!-- Navigation Buttons -->
+                        <div class="btn-group mb-4" role="group">
+                            <button type="button" class="btn btn-outline-secondary">Profile</button>
+                            <button type="button" class="btn btn-outline-secondary">Billing address</button>
+                            <button type="button" class="btn btn-outline-secondary">Change password</button>
+                            <button type="button" class="btn btn-custom">Notification</button>
+                        </div>
+    
+                        <!-- Notification Settings Table -->
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>TYPE</th>
+                                    <th>EMAIL</th>
+                                    <th>BROWSER</th>
+                                    <th>APP</th>
+                                </tr>
+                            </thead>
+                            <tbody id="notification-info">
+                                
+                                <tr>
+                                    <td id="modal-notification-type"></td>
+                                    <td><input id="checkEmail" type="checkbox" ></td>
+                                    <td><input id="checkBrowser" type="checkbox" ></td>
+                                    <td><input type="checkbox" ></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Notification Preferences -->
+                        <div class="form-group">
+                            <label for="notification-frequency">When should we send notifications?</label>
+                            <select class="form-control" id="notification-frequency">
+                                <option>Morning</option>
+                                <option>Weekly</option>
+                                <option>Monthly</option>
+                                <option>Bi_Weekly</option>
+                                <option>Quarterly</option>
+                            </select>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="daily-summary">Send a daily summary ("Daily Digest") of task activity.</label>
+                            <select class="form-control" id="daily-summary">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        </div>
+    
+                        <!-- Footer Note -->
+                        <div class="mt-3">
+                            <p class="text-muted">In order to cut back on noise, email notifications are grouped together and only sent when you're idle or offline.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-custom">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+            document.querySelectorAll('.edit-button').forEach(button => {
+    button.addEventListener('click', async function() {
+        const accountId = this.getAttribute('data-account-id'); // Lấy account_id từ thuộc tính data-account-id
+        console.log(accountId);
+        try {
+            // Gọi API để lấy dữ liệu thông báo chi tiết bằng account_id
+            const response = await fetch(`/NotificationSetting/${accountId}`);
+            const data = await response.json();
+
+            // Cập nhật nội dung modal bằng dữ liệu nhận được
+            const notificationInfo = document.getElementById('notification-info');
+            // Xóa nội dung hiện tại của bảng
+            notificationInfo.innerHTML = '';
+
+            data.forEach(notification => {
+                const tr = document.createElement('tr');
+
+                const notiType = document.createElement('td');
+                notiType.textContent = notification.notifications_setting_type;
+                tr.appendChild(notiType);
+
+                // Thêm các thẻ <td> khác nếu cần
+                // Ví dụ: 
+                // const anotherField = document.createElement('td');
+                // anotherField.textContent = notification.another_field;
+                // tr.appendChild(anotherField);
+                const checkboxTd = document.createElement('td');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = notification.email === true; // Đánh dấu checkbox nếu email = 1
+                checkboxTd.appendChild(checkbox);
+                tr.appendChild(checkboxTd);
+                const checkboxTd2 = document.createElement('td');
+                const checkbox2 = document.createElement('input');
+                checkbox2.type = 'checkbox';
+                checkbox2.checked = notification.browser === true; // Đánh dấu checkbox nếu email = 1
+                checkboxTd2.appendChild(checkbox2);
+                tr.appendChild(checkboxTd2);
+                const checkboxTd3 = document.createElement('td');
+                const checkbox3 = document.createElement('input');
+                checkbox3.type = 'checkbox';
+                checkbox3.checked = notification.app === true; // Đánh dấu checkbox nếu email = 1
+                checkboxTd3.appendChild(checkbox3);
+                tr.appendChild(checkboxTd3);
+                notificationInfo.appendChild(tr);
+            });
+        } catch (error) {
+            console.error('Error fetching notification settings:', error);
+        }
+    });
+});
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

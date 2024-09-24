@@ -5,7 +5,7 @@ const config = {
   database: "MockProject_072024_Group6",
   options: {
     trustServerCertificate: true,
-    enableArithAort: true,
+    enableArithAbort: true,
     instanceName: "MSSQLSERVER",
   },
   port: 1433,

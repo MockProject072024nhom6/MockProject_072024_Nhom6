@@ -28,11 +28,42 @@ async function getNotificationSettingsByAccountId(accountId) {
 }
 
 async function getAllServices() {
-  console.log("123");
+  try {
+    const pool = await sql.connect(config);
+    const allService = await pool.request().query("SELECT * FROM Services");
+    return allService.recordsets;
+  } catch (error) {
+    console.log({ message: error });
+  }
+}
+
+async function getServiceByName(serviceNames) {
+  try {
+    const pool = await sql.connect(config);
+    const serviceByName = await pool
+      .request()
+      .input("serviceNames", sql.VarChar, serviceNames)
+      .query("SELECT * FROM Services where service_names = @serviceNames");
+    return serviceByName.recordsets;
+  } catch (error) {
+    console.log({ message: error });
+  }
+}
+
+async function getFeedBacks() {
+  try {
+    const pool = await sql.connect(config);
+    const feedbackList = await pool.request().query("SELECT * FROM Feedbacks");
+    return feedbackList.recordsets;
+  } catch (error) {
+    console.log({ message: error });
+  }
 }
 
 module.exports = {
   getAllNotificationSetting: getAllNotificationSetting,
   getNotificationSettingsByAccountId: getNotificationSettingsByAccountId,
-  getAllServices,
+  getAllServices: getAllServices,
+  getServiceByName: getServiceByName,
+  getFeedBacks: getFeedBacks,
 };

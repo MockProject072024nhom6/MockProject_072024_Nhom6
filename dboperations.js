@@ -33,8 +33,7 @@ async function addUser(newUser) {
 
     // Query để thêm địa chỉ vào bảng Addresses
     const queryAddresses = `
-      INSERT INTO Addresses (address_id, stage, city, country, address_line_1
-      , address_line_2)
+      INSERT INTO Addresses (address_id, stage, city, country, address_line_1, address_line_2)
       VALUES (@addressId, @stage, @city, @country, '', '');
     `;
     // Query để thêm user vào bảng Accounts
@@ -42,13 +41,8 @@ async function addUser(newUser) {
       INSERT INTO Accounts (account_id, first_name, last_name, phone_number, email, current_password, confirm_password, account_role, gender, address_id, customer_id)
       VALUES (@accountId, @firstName, @lastName, @phoneNumber, @email, @currentPassword, @confirmPassword, @accountRole, @gender, @addressId, @customerId);
     `;
-    // Query để thêm user vào bảng Customers
-    const queryCustomers = `
-      INSERT INTO Customers (customer_id, request_contract_date)
-      VALUES (@customerId, '');
-    `;
 
-    // Truy vấn số lượng địa chỉ hiện có trong bảng Addresses
+    // Truy vấn số lượng địa chỉ, account và customer hiện có
     const resultADD = await pool
       .request()
       .query(`SELECT COUNT(*) as count FROM Addresses`);
@@ -61,7 +55,8 @@ async function addUser(newUser) {
     const countADD = resultADD.recordset[0].count;
     const countACC = resultACC.recordset[0].count;
     const countCUS = resultCUS.recordset[0].count;
-    // Tạo address_id mới dựa trên số lượng bản ghi hiện tại (ví dụ: ADD1, ADD2, ...)
+
+    // Tạo các ID mới
     const addressId = `ADD${countADD + 1}`;
     const accountId = `ACC${countACC + 1}`;
     const customerId = `CUS${countCUS + 1}`;
@@ -73,24 +68,26 @@ async function addUser(newUser) {
       .input("stage", sql.VarChar(60), newUser.stage)
       .input("city", sql.VarChar(100), newUser.city)
       .input("country", sql.VarChar(60), newUser.country)
-      .input("address_line_1", sql.VarChar(sql.MAX), "")
-      .input("address_line_2", sql.VarChar(sql.MAX), "")
       .query(queryAddresses);
-    // Kiểm tra xem customer_id có tồn tại không
+
+    /// Kiểm tra xem customer_id có tồn tại trong bảng Customers không
     const checkCustomer = await pool
       .request()
-      .input("customerId", sql.VarChar, customerId) // Thay đổi kiểu dữ liệu nếu cần
+      .input("customerId", sql.VarChar(20), customerId)
       .query("SELECT * FROM Customers WHERE customer_id = @customerId");
 
-    // Nếu customer_id không tồn tại, thêm vào bảng Customers
+    // Nếu customer_id chưa tồn tại, thêm vào bảng Customers
     if (checkCustomer.recordset.length === 0) {
       await pool
         .request()
-        .input("customerId", sql.VarChar, customerId)
-        // Thêm các thông tin cần thiết khác
-        .query("INSERT INTO Customers (customer_id) VALUES (@customerId)");
+        .input("customerId", sql.VarChar(20), customerId)
+        .input("request_contract_date", sql.DateTime, new Date()) // Thêm giá trị cho @request_contract_date
+        .query(
+          "INSERT INTO Customers (customer_id, request_contract_date) VALUES (@customerId, @request_contract_date)"
+        );
     }
-    // Chèn user vào bảng Accounts, với address_id đã tạo ở trên
+
+    // Chèn user vào bảng Accounts
     const pushUser = await pool
       .request()
       .input("accountId", sql.VarChar(20), accountId)
@@ -99,23 +96,17 @@ async function addUser(newUser) {
       .input("phoneNumber", sql.VarChar(20), newUser.phoneNumber)
       .input("email", sql.VarChar(255), newUser.email)
       .input("currentPassword", sql.VarChar(100), newUser.currentPassword) // Mã hóa trước khi lưu
-      .input("confirmPassword", sql.VarChar(100), newUser.confirmPassword) // Confirm password
-      .input("accountRole", sql.VarChar(20), newUser.role) // Vai trò của user (Admin, User, etc.)
+      .input("confirmPassword", sql.VarChar(100), newUser.confirmPassword)
+      .input("accountRole", sql.VarChar(20), newUser.role)
       .input("gender", sql.VarChar(10), newUser.gender)
-      .input("addressId", sql.VarChar(20), addressId) // Liên kết address_id với bảng Addresses
-      .input("customerId", sql.VarChar(20), customerId) // Liên kết address_id với bảng Addresses
-      .query(queryAccounts);
-
-    // Chèn vào bảng Customers
-    await pool
-      .request()
+      .input("addressId", sql.VarChar(20), addressId)
       .input("customerId", sql.VarChar(20), customerId)
-      .input("request_contract_date", sql.DateTime, new Date())
-      .query(queryCustomers);
+      .query(queryAccounts);
 
     return pushUser.recordsets;
   } catch (error) {
     console.log({ message: error });
+    throw error;
   }
 }
 

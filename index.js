@@ -1,4 +1,5 @@
 const dboperations = require("./dboperations");
+const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
@@ -77,7 +78,7 @@ userRouter.post("/signup", async (req, res) => {
       lastName,
       phoneNumber,
       email,
-      currentPassword, // Nên mã hóa mật khẩu trước khi lưu
+      currentPassword: bcrypt.hashSync(currentPassword, 10),
       confirmPassword,
       role: "CUSTOMER",
       gender,
@@ -86,8 +87,8 @@ userRouter.post("/signup", async (req, res) => {
       country,
       registerTime: new Date(),
     };
-    const user = await dboperations.addUser(newUser);
-    responseData(res, "Signup successfully", 200, user);
+    await dboperations.addUser(newUser);
+    responseData(res, "Signup successfully", 200, newUser);
   } catch (error) {
     responseData(res, "Internal server error", 500);
   }

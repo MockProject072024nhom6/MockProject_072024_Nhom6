@@ -39,10 +39,10 @@ userRouter.post("/signup", async (req, res) => {
       lastName,
       phoneNumber,
       email,
-      password,
+      currentPassword,
       confirmPassword,
       gender,
-      state,
+      stage,
       city,
       country,
     } = req.body;
@@ -52,24 +52,23 @@ userRouter.post("/signup", async (req, res) => {
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
     const maleRegex = /^(Male|Female)$/;
 
-    !phoneRegex.test(phoneNumber)
-      ? responseData(res, "Invalid phoneNumber format", 400)
-      : !emailRegex.test(email)
-      ? responseData(res, "Invalid email format", 400)
-      : !passwordRegex.test(password)
-      ? responseData(res, "Invalid password format", 400)
-      : password !== confirmPassword
-      ? responseData(res, "Passwords do not match", 400)
-      : !maleRegex.test(gender)
-      ? responseData(res, "Invalid gender format", 400)
-      : null;
+    if (!phoneRegex.test(phoneNumber)) {
+      return responseData(res, "Invalid phoneNumber format", 400);
+    } else if (!emailRegex.test(email)) {
+      return responseData(res, "Invalid email format", 400);
+    } else if (!passwordRegex.test(currentPassword)) {
+      return responseData(res, "Invalid password format", 400);
+    } else if (currentPassword !== confirmPassword) {
+      return responseData(res, "Passwords do not match", 400);
+    } else if (!maleRegex.test(gender)) {
+      return responseData(res, "Invalid gender format", 400);
+    } else null;
 
-    const checkEmail = dboperations.getUsers(email);
-    const checkPhone = dboperations.getUsers(phoneNumber);
+    const checkEmail = await dboperations.checkUserByEmail(email);
+    const checkPhone = await dboperations.checkUserByPhone(phoneNumber);
     if (checkEmail) {
       return responseData(res, "Email already exists", 400);
     }
-
     if (checkPhone) {
       return responseData(res, "Phone number already exists", 400);
     }
@@ -78,15 +77,17 @@ userRouter.post("/signup", async (req, res) => {
       lastName,
       phoneNumber,
       email,
-      password, // Nên mã hóa mật khẩu trước khi lưu
+      currentPassword, // Nên mã hóa mật khẩu trước khi lưu
+      confirmPassword,
+      role: "CUSTOMER",
       gender,
-      state,
+      stage,
       city,
       country,
+      registerTime: new Date(),
     };
-    await dboperations.addUser(newUser);
-
-    responseData(res, "Email already exists", 200);
+    const user = await dboperations.addUser(newUser);
+    responseData(res, "Signup successfully", 200, user);
   } catch (error) {
     responseData(res, "Internal server error", 500);
   }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Tabs as Tab } from "antd"
 import TabPane from "antd/es/tabs/TabPane"
 import ProfileComponents from "../DashboardComponents/ProfileComponents/ProfileComponents"

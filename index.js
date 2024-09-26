@@ -7,6 +7,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const responseData = require("./responseData");
+const {
+  phoneRegex,
+  emailRegex,
+  passwordRegex,
+  maleRegex,
+} = require("./constants");
+const { createTokenRef, createToken } = require("./jwt");
 const app = express();
 const router = express.Router();
 
@@ -47,11 +54,6 @@ userRouter.post("/signup", async (req, res) => {
       city,
       country,
     } = req.body;
-    const phoneRegex = /^(0[3|5|7|8|9])+([0-9]{8})$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex =
-      /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
-    const maleRegex = /^(Male|Female)$/;
 
     if (!phoneRegex.test(phoneNumber)) {
       return responseData(res, "Invalid phoneNumber format", 400);
@@ -73,13 +75,14 @@ userRouter.post("/signup", async (req, res) => {
     if (checkPhone) {
       return responseData(res, "Phone number already exists", 400);
     }
+    const encode = bcrypt.hashSync(currentPassword, 10);
     const newUser = {
       firstName,
       lastName,
       phoneNumber,
       email,
-      currentPassword: bcrypt.hashSync(currentPassword, 10),
-      confirmPassword,
+      currentPassword: encode,
+      confirmPassword: encode,
       role: "CUSTOMER",
       gender,
       stage,
@@ -91,6 +94,43 @@ userRouter.post("/signup", async (req, res) => {
     responseData(res, "Signup successfully", 200, newUser);
   } catch (error) {
     responseData(res, "Internal server error", 500);
+  }
+});
+userRouter.post("/login", async (req, res) => {
+  let { emailOrPhone, currentPassword } = req.body;
+
+  if (!emailRegex.test(emailOrPhone) && !phoneRegex.test(emailOrPhone)) {
+    responseData(res, "Invalid email or phone number format", 400);
+    return;
+  }
+
+  const checkEmail = await dboperations.checkUserByEmail(emailOrPhone);
+  const checkPhone = await dboperations.checkUserByPhone(emailOrPhone);
+  if (!checkEmail && !checkPhone) {
+    return responseData(res, "Email or phone not available", 400);
+  }
+  // Lấy mật khẩu từ email hoặc số điện thoại
+  let encodePassword;
+  let accountId;
+
+  if (checkEmail) {
+    encodePassword = checkEmail.current_password; // Lấy mật khẩu từ email
+    accountId = checkEmail.account_id; // Lấy account_id từ email
+  } else if (checkPhone) {
+    encodePassword = checkPhone.current_password; // Lấy mật khẩu từ số điện thoại
+    accountId = checkPhone.account_id; // Lấy account_id từ số điện thoại
+  }
+
+  if (bcrypt.compareSync(currentPassword, encodePassword)) {
+    let token = createToken({ accountId });
+    let tokenRef = createTokenRef({
+      accountId,
+    });
+    // Cập nhật refresh_token trong bảng Accounts
+    await dboperations.updateRefreshToken(accountId, tokenRef);
+    return responseData(res, "Login successfully", 200, token);
+  } else {
+    return responseData(res, "Password is incorrect", 400);
   }
 });
 
@@ -108,7 +148,6 @@ notificationRouter.get("/notificationSetting", async (req, res) => {
     responseData(res, "Internal server error", 500);
   }
 });
-
 notificationRouter.get("/:accountId", async (req, res) => {
   try {
     const accountId = req.params.accountId;
@@ -130,7 +169,6 @@ serviceRouter.get("/services", async (req, res) => {
     responseData(res, "Internal server error", 500);
   }
 });
-
 serviceRouter.get("/:serviceNames", async (req, res) => {
   try {
     const serviceByNames = req.params.serviceNames;

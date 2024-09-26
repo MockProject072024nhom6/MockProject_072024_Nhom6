@@ -1,6 +1,37 @@
 const config = require("./dbconfig");
 const sql = require("mssql");
 
+// Create New Id
+async function generateNewId(pool, tableName, prefix) {
+  try {
+    const result = await pool
+      .request()
+      .query(`SELECT COUNT(*) as count FROM ${tableName}`);
+    const count = result.recordset[0].count;
+    return `${prefix}${count + 1}`;
+  } catch (error) {
+    throw new Error(
+      `Error generating ID for table ${tableName}: ${error.message}`
+    );
+  }
+}
+// Update RefreshToken.
+async function updateRefreshToken(accountId, refreshToken) {
+  try {
+    const pool = await sql.connect(config);
+    await pool
+      .request()
+      .input("accountId", sql.VarChar(20), accountId) // Trường account_id
+      .input("refreshToken", sql.VarChar(sql.MAX), refreshToken) // Trường refresh_token
+      .query(
+        "UPDATE Accounts SET refresh_token = @refreshToken WHERE account_id = @accountId"
+      );
+  } catch (error) {
+    console.log({ message: error });
+    throw error;
+  }
+}
+
 // Users
 async function checkUserByEmail(email) {
   try {
@@ -9,7 +40,7 @@ async function checkUserByEmail(email) {
       .request()
       .input("email", sql.VarChar(255), email)
       .query("SELECT * FROM Accounts WHERE email = @email");
-    return result.recordset.length > 0; // Trả về true nếu đã tồn tại
+    return result.recordset.length > 0 ? result.recordset[0] : null; // Trả về đối tượng người dùng nếu tìm thấy
   } catch (error) {
     console.log({ message: error });
   }
@@ -21,12 +52,11 @@ async function checkUserByPhone(phoneNumber) {
       .request()
       .input("phoneNumber", sql.VarChar(20), phoneNumber)
       .query("SELECT * FROM Accounts WHERE phone_number = @phoneNumber");
-    return result.recordset.length > 0; // Trả về true nếu đã tồn tại
+    return result.recordset.length > 0 ? result.recordset[0] : null; // Trả về đối tượng người dùng nếu tìm thấy
   } catch (error) {
     console.log({ message: error });
   }
 }
-
 async function addUser(newUser) {
   try {
     const pool = await sql.connect(config);
@@ -42,24 +72,10 @@ async function addUser(newUser) {
       VALUES (@accountId, @firstName, @lastName, @phoneNumber, @email, @currentPassword, @confirmPassword, @accountRole, @gender, @addressId, @customerId);
     `;
 
-    // Truy vấn số lượng địa chỉ, account và customer hiện có
-    const resultADD = await pool
-      .request()
-      .query(`SELECT COUNT(*) as count FROM Addresses`);
-    const resultACC = await pool
-      .request()
-      .query(`SELECT COUNT(*) as count FROM Accounts`);
-    const resultCUS = await pool
-      .request()
-      .query(`SELECT COUNT(*) as count FROM Customers`);
-    const countADD = resultADD.recordset[0].count;
-    const countACC = resultACC.recordset[0].count;
-    const countCUS = resultCUS.recordset[0].count;
-
     // Tạo các ID mới
-    const addressId = `ADD${countADD + 1}`;
-    const accountId = `ACC${countACC + 1}`;
-    const customerId = `CUS${countCUS + 1}`;
+    const addressId = await generateNewId(pool, "Addresses", "ADD");
+    const accountId = await generateNewId(pool, "Accounts", "ACC");
+    const customerId = await generateNewId(pool, "Customers", "CUS");
 
     // Chèn địa chỉ vào bảng Addresses
     await pool
@@ -136,6 +152,7 @@ async function getNotificationSettingsByAccountId(accountId) {
     console.log({ message: error });
   }
 }
+
 // Services
 async function getAllServices() {
   try {
@@ -172,6 +189,7 @@ async function getFeedBacks() {
 module.exports = {
   checkUserByEmail,
   checkUserByPhone,
+  updateRefreshToken,
   addUser,
   getAllNotificationSetting,
   getNotificationSettingsByAccountId,

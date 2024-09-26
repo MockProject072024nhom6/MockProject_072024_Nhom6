@@ -97,41 +97,47 @@ userRouter.post("/signup", async (req, res) => {
   }
 });
 userRouter.post("/login", async (req, res) => {
-  let { emailOrPhone, currentPassword } = req.body;
+  try {
+    let { emailOrPhone, currentPassword } = req.body;
 
-  if (!emailRegex.test(emailOrPhone) && !phoneRegex.test(emailOrPhone)) {
-    responseData(res, "Invalid email or phone number format", 400);
-    return;
-  }
+    if (!emailRegex.test(emailOrPhone) && !phoneRegex.test(emailOrPhone)) {
+      responseData(res, "Invalid email or phone number format", 400);
+      return;
+    }
 
-  const checkEmail = await dboperations.checkUserByEmail(emailOrPhone);
-  const checkPhone = await dboperations.checkUserByPhone(emailOrPhone);
-  if (!checkEmail && !checkPhone) {
-    return responseData(res, "Email or phone not available", 400);
-  }
-  // Lấy mật khẩu từ email hoặc số điện thoại
-  let encodePassword;
-  let accountId;
+    const checkEmail = await dboperations.checkUserByEmail(emailOrPhone);
+    const checkPhone = await dboperations.checkUserByPhone(emailOrPhone);
+    if (!checkEmail && !checkPhone) {
+      responseData(res, "Email or phone not available", 400);
+      return;
+    }
+    // Lấy mật khẩu từ email hoặc số điện thoại
+    let encodePassword;
+    let accountId;
 
-  if (checkEmail) {
-    encodePassword = checkEmail.current_password; // Lấy mật khẩu từ email
-    accountId = checkEmail.account_id; // Lấy account_id từ email
-  } else if (checkPhone) {
-    encodePassword = checkPhone.current_password; // Lấy mật khẩu từ số điện thoại
-    accountId = checkPhone.account_id; // Lấy account_id từ số điện thoại
-  }
+    if (checkEmail) {
+      encodePassword = checkEmail.current_password; // Lấy mật khẩu từ email
+      accountId = checkEmail.account_id; // Lấy account_id từ email
+    } else if (checkPhone) {
+      encodePassword = checkPhone.current_password; // Lấy mật khẩu từ số điện thoại
+      accountId = checkPhone.account_id; // Lấy account_id từ số điện thoại
+    }
 
-  if (bcrypt.compareSync(currentPassword, encodePassword)) {
-    let token = createToken({ accountId });
-    let tokenRef = createTokenRef({
-      accountId,
-    });
-    // Cập nhật refresh_token trong bảng Accounts
-    await dboperations.updateRefreshToken(accountId, tokenRef);
-    return responseData(res, "Login successfully", 200, token);
-  } else {
-    return responseData(res, "Password is incorrect", 400);
+    if (bcrypt.compareSync(currentPassword, encodePassword)) {
+      let token = createToken({ accountId });
+      let tokenRef = createTokenRef({
+        accountId,
+      });
+      // Cập nhật refresh_token trong bảng Accounts
+      await dboperations.updateRefreshToken(accountId, tokenRef);
+      return responseData(res, "Login successfully", 200, token);
+    } else {
+      return responseData(res, "Password is incorrect", 400);
+    }
+  } catch (error) {
+    responseData(res, "Internal server error", 500);
   }
+  y;
 });
 
 notificationRouter.get("/notificationSetting", async (req, res) => {

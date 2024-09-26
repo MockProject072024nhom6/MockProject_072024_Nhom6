@@ -10,7 +10,7 @@ const EditableButtonInput: React.FC<I_props_EditableButton> = ({
   const [text, setText] = useState(initialText);
   const [showPassword, setShowPassword] = useState(
     type === 'password' ? false : true
-  ); // Điều kiện khởi tạo
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -39,6 +39,8 @@ const EditableButtonInput: React.FC<I_props_EditableButton> = ({
                 value={text}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                title={label}
+                placeholder={label}
                 autoFocus
                 className="px-3 py-1 rounded-lg max-w-72 w-full h-8 bg-gray-200 border border-gray-300 focus:outline-none text-start"
               />
@@ -55,6 +57,8 @@ const EditableButtonInput: React.FC<I_props_EditableButton> = ({
                 value={text}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                title={label}
+                placeholder={label}
                 autoFocus
                 className="pl-3 py-1 rounded-lg h-8 bg-gray-200 border border-gray-300 focus:outline-none text-start"
               />
@@ -66,7 +70,7 @@ const EditableButtonInput: React.FC<I_props_EditableButton> = ({
               onClick={toggleShowPassword}
               className="px-3 py-1 mr-2 rounded-lg bg-gray-300 hover:bg-gray-400"
             >
-              {showPassword ? 'Ẩn' : 'Hiện'}
+              {showPassword ? 'Hide' : 'Show'}
             </button>
           )}
 
@@ -74,7 +78,7 @@ const EditableButtonInput: React.FC<I_props_EditableButton> = ({
             onClick={handleEditClick}
             className="px-3 mr-2 py-2  rounded-lg bg-gray-300 hover:bg-gray-400"
           >
-            Sửa
+            Edit
           </button>
         </div>
       </div>

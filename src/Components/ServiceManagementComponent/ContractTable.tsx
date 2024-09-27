@@ -7,7 +7,7 @@ const ContractTable: React.FC<I_props_ContractTable> = ({ contracts }) => {
   const [searchStartDate, setSearchStartDate] = useState('');
   const [searchContractCode, setSearchContractCode] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 15;
+  const itemsPerPage = 10;
 
   const filteredContracts = contracts.filter(contract => {
     return (

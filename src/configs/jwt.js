@@ -14,10 +14,26 @@ const createTokenRef = (data) =>
 const checkTokenRef = (token) =>
   jwt.verify(token, "ADVANCED_SECRET_KEY", (error, decode) => error);
 
+const middleToken = (req, res, next) => {
+  let { token } = req.headers;
+
+  let check = checkToken(token);
+
+  check == null
+    ? next()
+    : responseData(
+        res,
+        "The token has expired, wrong security key or is invalid",
+        401,
+        check
+      );
+};
+
 module.exports = {
   createToken,
   checkToken,
   decodeToken,
   createTokenRef,
   checkTokenRef,
+  middleToken,
 };

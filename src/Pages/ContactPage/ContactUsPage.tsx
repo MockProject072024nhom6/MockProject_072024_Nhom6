@@ -12,13 +12,14 @@ const ContactUsPage: React.FC = () => {
         <HeaderInPageHome title={"Contact Us"} subtitle={"Contact Us"} page={"Home"} />
 
         <div className=''>
-          <div className='grid grid-cols-1 md:grid-cols-2 mx-10 p-20'>
+          <div className='grid grid-cols-1 md:grid-cols-2 mx-auto p-20'>
             <ContactForm />
             <ContactLocations />
           </div>
           <BusinessInfo />
         </div>
       </main>
+      {/* <Footer /> */}
     </>
   )
 }

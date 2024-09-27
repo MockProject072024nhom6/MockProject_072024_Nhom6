@@ -190,7 +190,16 @@ export interface I_Props_Location {
   handleChange?: (event: React.ChangeEvent<any>) => void
   errors: FormikErrors<I_BillingAddress>
 }
-
+export interface I_props_ButtonBlue {
+  buttonText: string
+  className?: string
+  onClick?: () => void
+}
+export interface I_props_ButtonBlack {
+  buttonText: string
+  className?: string
+  onClick?: () => void
+}
 export interface I_Props_AddressLine1 {
   list?: string[]
   value?: string
@@ -254,6 +263,7 @@ export type I_props_FormInput = {
 export type I_props_SelectInput = {
   options: string[]
   value: string
+  ariaLabel: string
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 export type I_props_Button = {

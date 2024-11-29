@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "types": ["jest", "@testing-library/jest-dom"],
+    "allowImportingTsExtensions": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "./src", // Đặt baseUrl trỏ tới thư mục src (hoặc root project)
+    "paths": {
+      "@/*": ["*"] // Thiết lập alias @ trỏ tới src
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs", "src"], // Bao gồm thư mục src trong việc compile
+  "exclude": ["node_modules"]
+}
